@@ -28,3 +28,12 @@ We went over the slideshow for our initial presentation. Began discussing future
   - Working on slide #5 of the powerpoint.
 10. Gilbert Velasquez
   - Working on slide #4 of the powerpoint.
+
+# Meeting Records 10/23/2020
+
+- Attendees: Kevin, Jacob, Stephanie, Xavier, Sebastian, Richard, Antonio, Cynthia
+- Start Time: 5:00pm
+- End Time: 6:00pm
+
+#### Summary:
+We finalized UI design, completed most of the slides for presentation, discussed APIs and data sources for project.
