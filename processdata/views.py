@@ -6,7 +6,7 @@ import json
 
 from . import getdata, maps
 
-
+# Renders the data of index.html
 def index(request): 
     return render(request, template_name='index.html')
 
@@ -85,7 +85,7 @@ def daily_report(request):
 
     return HttpResponse(df.to_json(orient='columns'), content_type='application/json')
 
-
+# The render of the map of the United States. We could just change this to the flight tracker page when we finish that.
 def mapspage(request):
     plot_div = maps.usa_map()
     return render(request, template_name='pages/maps.html', context={'usa_map': plot_div})

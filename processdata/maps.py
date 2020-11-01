@@ -1,5 +1,8 @@
-# File for creation of plotly maps(figs).
-# You can use the plotly builtin fig.show() method to map locally.
+""" Covidly Project
+    CS 4390: Information Retrieval
+    @Team 2
+    Description: This file is used to create and render the plotly maps used in the frontend.
+"""
 import json
 from urllib.request import urlopen
 
@@ -8,10 +11,8 @@ from plotly.offline import plot
 
 from . import getdata
 
-
+# Method creates a simple choropleth mapbox componet of the United States and generates up to the county level. Using this source to grab all counties through json https://plotly.com/python/reference/#choroplethmapbox.
 def usa_map():
-    # Map of USA subdivided by FIPS-codes (counties), showing cases per-capita basis
-    # Reference: https://plotly.com/python/reference/#choroplethmapbox
     with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
         counties = json.load(response)
 

@@ -1,12 +1,13 @@
-# Kevin Apodaca, Team 2
+""" Covidly Project
+    CS 4390: Information Retrieval
+    @Team 2
+    Description: This file is used to scrape the latest COVID data from the Johns Hopkins CSSE repository as well as the Our World In Data and The New York Times.
+"""
 import datetime
 import platform
 import pandas as pd
 
-# Datasets scraped can be found in the following URL's:
-# ¹ Johns Hopkins: https://github.com/CSSEGISandData/COVID-19 
-
-# Different styles in zero-padding in date depend on operating systems
+# Just changes the format of datetime depending on which OS you're on. Otherwise more bugs to fix and we don't like that.
 if platform.system() == 'Linux':
     STRFTIME_DATA_FRAME_FORMAT = '%-m/%-d/%y'
 elif platform.system() == 'Windows':
@@ -14,10 +15,8 @@ elif platform.system() == 'Windows':
 else:
     STRFTIME_DATA_FRAME_FORMAT = '%-m/%-d/%y'
 
-
+# This method fetches the daily report of COVID cases from CSSE, these are global classes. To fetch just U.S cases we can switch the report_directory to get 'csse_covid_19_daily_reports_us'.csse_covid_19_daily_reports. Stores data as a CSV file of new cases.
 def daily_report(date_string=None):
-    # Reports aggegrade data, dating as far back to 01-22-2020
-    # If passing arg, must use above date formatting '01-22-2020'
     report_directory = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/'
     
     if date_string is None: 
@@ -29,49 +28,40 @@ def daily_report(date_string=None):
     df = pd.read_csv(report_directory + file_date + '.csv', dtype={"FIPS": str})
     return df
 
-
+# This method fetches the daily reported cases by the date. Currently using a global filter so we are getting all the data.
 def daily_confirmed():
-    # returns the daily reported cases for respective date, 
-    # segmented globally and by country
     df = pd.read_csv('https://covid.ourworldindata.org/data/ecdc/new_cases.csv')
     return df
 
-
+# This method fetches the daily reported deaths by the date.. Currently using a global filter so we are getting all the data.
 def daily_deaths():
-    # returns the daily reported deaths for respective date
     df = pd.read_csv('https://covid.ourworldindata.org/data/ecdc/new_deaths.csv')
     return df
 
-
+# This method fetches a time-series data table of total confirmed cases. This is also global.
 def confirmed_report():
-    # Returns time series version of total cases confirmed globally
     df = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv')
     return df
 
-
+# This method fetches a time-series data table of total deaths. This is also by global scope.
 def deaths_report():
-    # Returns time series version of total deaths globally
     df = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv')
     return df
 
-
+# This method fetches a time-series data table of total recovered cases. Global scope.
 def recovered_report():
-    # Return time series version of total recoveries globally
     df = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv')
     return df 
 
-
-def realtime_growth(date_string=None, weekly=False, monthly=False):
-    """[summary]: consolidates all reports, to create time series of statistics.
-    Columns excluded with list comp. are: ['Province/State','Country/Region','Lat','Long'].
-
+"""
+**Work in Progress**
+    Description: This is supposed to bring together and consolidate all reports and generates a time series. Shows columns based on state,country, latitude, and longitude.
     Args:
-        date_string: must use following date formatting '4/12/20'.
-        weekly: bool, returns df for last 8 weks
-        monthly: bool, returns df for last 3 months
-    Returns:
-        [growth_df] -- [growth in series]
-    """ 
+        date_string: must use following date formatting '6/10/20'.
+        weekly: a boolean, which returns data frame (df) for last 8 weeks.
+        monthly: boolean, which returns data frame (df) for last 3 months.
+"""
+def realtime_growth(date_string=None, weekly=False, monthly=False):
     df1 = confirmed_report()[confirmed_report().columns[4:]].sum()
     df2 = deaths_report()[deaths_report().columns[4:]].sum()
     df3 = recovered_report()[recovered_report().columns[4:]].sum()
@@ -101,49 +91,31 @@ def realtime_growth(date_string=None, weekly=False, monthly=False):
     
     return growth_df
 
-
+# This method calculates a percentage of change of the trends frontend component. Compares last week to this week.
 def percentage_trends():
-    """[summary]: Returns percentage of change, in comparison to week prior.
-    
-    Returns:
-        [pd.series] -- [percentage objects]
-    """    
     current = realtime_growth(weekly=True).iloc[-1]
     last_week = realtime_growth(weekly=True).iloc[-2]
     trends = round(number=((current - last_week)/last_week)*100, ndigits=1)
-    
     rate_change = round(((current.Deaths/current.Confirmed)*100)-((last_week.Deaths / last_week.Confirmed)*100), ndigits=2)
     trends = trends.append(pd.Series(data=rate_change, index=['Death_rate']))
     
     return trends
 
-
+# This method generates the sortable table for the frontend that shows stats of all countries.
 def global_cases():
-    """[summary]: Creates a table on total statistics of all countries,
-    sorted by confirmations.
-
-    Returns:
-        [pd.DataFrame]
-    """
     df = daily_report()[['Country_Region', 'Confirmed', 'Deaths', 'Recovered', 'Active']]
     df.rename(columns={'Country_Region':'Country'}, inplace=True) 
-    df = df.groupby('Country', as_index=False).sum()  # Dataframe mapper, combines rows where country value is the same
+    df = df.groupby('Country', as_index=False).sum()
     df.sort_values(by=['Confirmed'], ascending=False, inplace=True)
     
     return df
 
+# This method fetches live data of the United States and filters by the county level (per 100000 people). Will be used for the 'Choosing State' frontend component of covidly dashboard page.
 def usa_counties():
-    """[summary]: Returns live cases of USA at county-level
-    
-    source:
-        ³ nytimes
-    Returns:
-        [pd.DataFrame]
-    """
     populations = pd.read_csv('https://raw.githubusercontent.com/balsama/us_counties_data/master/data/counties.csv')[['FIPS Code', 'Population']]
     populations.rename(columns={'FIPS Code': 'fips'}, inplace=True)
     df = pd.read_csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv', dtype={"fips": str}).iloc[:,:6]
     df = pd.merge(df, populations, on='fips')
-    df['cases/capita'] = (df.cases / df.Population)*100000 # per 100k residents
+    df['cases/capita'] = (df.cases / df.Population)*100000
 
     return df
