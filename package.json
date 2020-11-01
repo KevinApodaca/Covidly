@@ -1,0 +1,46 @@
+{
+  "name": "covidly-project-team-2",
+  "version": "2.0.0",
+  "description": "COVID and Flight Tracker Dashboard. A semester project for CS 4390 at the University of Texas at El Paso. ",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": "8.11.3"
+  },
+  "devDependencies": {
+    "eslint": "5.0.0",
+    "eslint-config-google": "0.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KevinApodaca/Covidly"
+  },
+  "keywords": [
+    "django",
+    "covid",
+    "cs",
+    "utep",
+    "data",
+    "health",
+    "coronavirus",
+    "data science",
+    "information retrieval",
+    "university of texas at el paso",
+    "UTEP",
+    "open-source"
+  ],
+  "author": "Kevin Apodaca",
+  "contributors": [
+    "Jacob Barberena",
+    "Stephanie Callejas",
+    "Valeria Gonzalez Muñoz",
+    "Xavier Martinez",
+    "Sebastian Nuñez",
+    "Richard Quinn",
+    "Antonio Sosa",
+    "Cynthia Sustaita",
+    "Gilbert Velasquez"
+  ],
+  "license": "MIT"
+}
