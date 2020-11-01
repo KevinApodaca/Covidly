@@ -10,44 +10,50 @@
 
     {% include "includes/header.html" %}
 
+  <!-- Renders the interactive map that shows the Ployly Mapbox.
+        Fetches the GeoJSON data from the plotly dataset for countries found here https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json
+   -->
+
     <div class="container-fluid mt--7 bg-secondary">
       <div class="row">
-        <div class="col-xl-8 mb-5 mb-xl-0">  <!-- Global interactive Plotly Mabpox -->
+        <div class="col-xl-8 mb-5 mb-xl-0">
           <div class="card shadow fade-in-bottom">
             <div class="card-body plotly worldmap">
               <div id="world_map" class="chart" style="height: 100%;"></div>
             </div>
             <div style="position: absolute; padding:1.25rem 1.5rem;">
                 <h6 class="text-uppercase text-muted ls-1 mb-1">Global | Cumulative</h6>
-                <h2 class="text-dark mb-0">Mapbox</h2>
             </div>
           </div>
         </div>
-        <div class="col-xl-4">  <!-- Growth interactive scatterplot -->
-          <div class="card bg-dark shadow fade-in-bottom">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h6 class="text-uppercase text-light ls-1 mb-1">Global | Cumulative</h6>
-                  <h2 class="text-white mb-0">Growth</h2>
-                </div>
-                <div class="col text-right">
-                  <a class="btn btn-sm btn-light" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Info"
-                      data-content="Global cumulative growth in cases since collection of data started. Defaulted to logarithmic y-scale">
-                      &nbsp;<i class="fas fa-info text-dark">&nbsp;</i>
-                    </a>
-                </div>
-              </div>
-            </div>
-            <div class="card-body plotly">
-              <div id="realtime_growth_chart" class="chart" style="height: 310px;"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+        <!--  Renders the scatterplot chart that shows the cummulative growth cases per month thus far.
+              We will probably want to remove this and add the Stats by cases card component from the UI design.
+        -->
+<!--        <div class="col-xl-4">-->
+<!--          <div class="card bg-dark shadow fade-in-bottom">-->
+<!--            <div class="card-header bg-transparent">-->
+<!--              <div class="row align-items-center">-->
+<!--                <div class="col">-->
+<!--                  <h6 class="text-uppercase text-light ls-1 mb-1">Global | Cumulative</h6>-->
+<!--                  <h2 class="text-white mb-0">Covidly Growth (Rename this)</h2>-->
+<!--                </div>-->
+<!--                <div class="col text-right">-->
+<!--                  <a class="btn btn-sm btn-light" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Info"-->
+<!--                      data-content="This component shows the growth of global cases since the first data set was ingested.">-->
+<!--                      &nbsp;<i class="fas fa-info text-dark">&nbsp;</i>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="card-body plotly">-->
+<!--              <div id="realtime_growth_chart" class="chart" style="height: 310px;"></div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+    <!-- Renders the Monthly cases card component, currently shows daily cases. #TODO, readjust calls to make it get by month. -->
       <div class="row mt-5">
-        <div class="col-xl-8 mb-5 mb-xl-0">   <!-- Global daily growth plot -->
+        <div class="col-xl-8 mb-5 mb-xl-0">
           <div class="card shadow">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
@@ -57,7 +63,7 @@
                 </div>
                 <div class="col text-right">
                   <a class="btn btn-sm btn-white" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Info"
-                      data-content="Daily time series of cases. Bars can be stacked for relative adjacent comparison by toggling 'confirmed' cases.">
+                      data-content="Monthly time series of cases.">
                       &nbsp;<i class="fas fa-info">&nbsp;</i>
                     </a>
                 </div>
@@ -75,8 +81,7 @@
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
-                  <h6 class="text-uppercase text-muted ls-1 mb-1">Global | Sortable</h6>
-                  <h2 class="mb-0">Cases</h2>
+                  <h2 class="mb-0">Cases by Country</h2>
                 </div>
                 <div class="col text-right">
                   <a href="#!" class="btn btn-sm btn-white">
@@ -86,7 +91,7 @@
               </div>
             </div>
             <div class="table-responsive">
-              <!-- cases table -->
+              <!-- This is the columns of the cases by country table -->
               <table id="cases_table" class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
