@@ -1,6 +1,10 @@
 <h1 align="center"> Covidly Project </h1> <br>
 CS 4390 semester project as developed by Team 2 at the University of Texas at El Paso.
 
+<p align="center">
+  <img src="dashboard_illustration.svg" width=700>
+</p>
+
 ## Project Structure
 *core* contains frontend html files and static files.
 *processdata>getdata* contains services for fetching data.
