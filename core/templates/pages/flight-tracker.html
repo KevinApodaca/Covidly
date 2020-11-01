@@ -1,0 +1,33 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Maps {% endblock title %}
+
+{% block content %}
+<div class="container-fluid pt-6 bg-secondary">
+  <h2>Flight Tracker</h2>
+  <p>Needs to be done. Come back to this. @Kevin Apodaca</p>
+  <div class="row">
+    <div class="col-xl-12 mb-5 mb-xl-0">  <!-- Show the same map as before for now. -->
+      <div class="card shadow fade-in-bottom">
+        <div class="card-body plotly worldmap">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.54.6/plotly.min.js"></script>
+        </div>
+        <div style="position: absolute; padding:1.25rem 1.5rem;">
+            <h6 class="text-uppercase text-muted ls-1 mb-1">Flight tracker</h6>
+            <h2 class="text-dark mb-0">Send help</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include "includes/footer.html" %}
+</div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}
+<script>
+$('.nav-item a').removeClass('active');
+$('.maps-item a').addClass('active');
+</script>
+{% endblock javascripts %}
