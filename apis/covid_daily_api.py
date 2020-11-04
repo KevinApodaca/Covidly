@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Nov  4 12:39:22 2020
-
-@author: xavier
-"""
 
 import requests
 import json
@@ -85,3 +80,4 @@ print('Increase in reported deaths:',today['deathIncrease'],"new deaths")
 # positiveScore :  0
 # score :  0
 # grade :  
+    

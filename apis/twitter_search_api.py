@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Nov  4 15:53:21 2020
-
-@author: xavier
-"""
 
 import requests
 import json
