@@ -1,0 +1,191 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<h1 class="display-3">Covidly Newsfeed </h1>
+<div class="container">
+    <div class="btn-group btn-toggle mb-2">
+        <button class="btn btn-xs btn-primary active">Newsfeed</button>
+        <button class="btn btn-xs btn-default">Twitter</button>
+    </div>
+    <h3 class="display-4">Newsfeed―</h3>
+    <div class="row mb-5">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://source.unsplash.com/random/1920x1080" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">This is the header for the first news article. Some blah blah blah here.</h5>
+                    <p class="card-text">Here is a simple description of the news article from the API. So there is some very simple description that goes here and blah blah today is October 18th</p>
+                    <a href="#" class="btn btn-sm btn-primary">link to article ?</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://source.unsplash.com/random/1920x1080" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">This is the header for the first news article. Some blah blah blah here.</h5>
+                    <p class="card-text">Here is a simple description of the news article from the API. So there is some very simple description that goes here and blah blah today is October 18th</p>
+                    <a href="#" class="btn btn-sm btn-primary">link to article ?</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://source.unsplash.com/random/1920x1080" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">This is the header for the first news article. Some blah blah blah here.</h5>
+                    <p class="card-text">Here is a simple description of the news article from the API. So there is some very simple description that goes here and blah blah today is October 18th</p>
+                    <a href="#" class="btn btn-sm btn-primary">link to article ?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-5 cstm-height-card">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://source.unsplash.com/random/1200x900" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">This is the header for the first news article. Some blah blah blah here.</h5>
+                    <p class="card-text">Here is a simple description of the news article from the API. So there is some very simple description that goes here and blah blah today is October 18th</p>
+                    <a href="#" class="btn btn-sm btn-primary">link to article ?</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://source.unsplash.com/random/1500x800" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">This is the header for the first news article. Some blah blah blah here.</h5>
+                    <p class="card-text">Here is a simple description of the news article from the API. So there is some very simple description that goes here and blah blah today is October 18th</p>
+                    <a href="#" class="btn btn-sm btn-primary">link to article ?</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://source.unsplash.com/random/1400x700" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">This is the header for the first news article. Some blah blah blah here.</h5>
+                    <p class="card-text">Here is a simple description of the news article from the API. So there is some very simple description that goes here and blah blah today is October 18th</p>
+                    <a href="#" class="btn btn-sm btn-primary">link to article ? </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <style>
+        .cstm-height-card .card-img-top {
+            height: 100px;
+            object-fit: cover;
+        }
+        body {
+            margin-top: 20px;
+        }
+
+           .card {
+               border: none;
+           }
+        .card-img {
+            border-radius: 0;
+        }
+
+        .vgr-cards {
+        .card {
+            display: flex;
+            flex-flow: wrap;
+            flex: 100%;
+            margin-bottom: 40px;
+
+        &:nth-child(even) .card-img-body {
+             order: 2;
+         }
+
+        &:nth-child(even) .card-body {
+             padding-left: 0;
+             padding-right: 1.25rem;
+         }
+
+        @media (max-width: 576px) {
+            display: block;
+        }
+
+        }
+
+        .card-img-body {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+
+        @media (max-width: 576px) {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+
+        }
+
+        .card-img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            margin-left: 50%;
+            transform: translateX(-50%);
+
+        @media (max-width: 1140px) {
+            margin: 0;
+            transform: none;
+            width: 100%;
+            height: auto;
+        }
+
+        }
+
+        .card-body {
+            flex: 2;
+            padding: 0 0 0 1.25rem;
+
+        @media (max-width: 576px) {
+            padding: 0
+        }
+
+        }
+        }
+
+    </style>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}
+<script>
+    $('.nav-item a').removeClass('active');
+    $('.data-item a').addClass('active');
+    $('.btn-toggle').click(function() {
+        $(this).find('.btn').toggleClass('active');
+
+        if ($(this).find('.btn-primary').length>0) {
+            $(this).find('.btn').toggleClass('btn-primary');
+        }
+        if ($(this).find('.btn-danger').length>0) {
+            $(this).find('.btn').toggleClass('btn-danger');
+        }
+        if ($(this).find('.btn-success').length>0) {
+            $(this).find('.btn').toggleClass('btn-success');
+        }
+        if ($(this).find('.btn-info').length>0) {
+            $(this).find('.btn').toggleClass('btn-info');
+        }
+
+        $(this).find('.btn').toggleClass('btn-default');
+
+    });
+
+    $('form').submit(function(){
+        var radioValue = $("input[name='options']:checked").val();
+        if(radioValue){
+            alert("You selected - " + radioValue);
+        };
+        return false;
+    });
+</script>
+{% endblock javascripts %}

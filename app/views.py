@@ -8,6 +8,9 @@ Defines the main page of the project and the error page should anything go wrong
 def index(request):
     return render(request, "index.html")
 
+def newsfeed(request):
+    return render(request, "pages/newsfeed.html")
+
 
 def pages(request):
     context = {}
