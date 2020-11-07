@@ -4,6 +4,8 @@ Covidly takes advantage of four APIs to report its data - NewsAPI, Twitter, Avia
 
 ## News API
 
+``` To be filled out with Trello 13```
+
 ## Twitter API
 
 Covidly uses Twitter's v2 API to fetch recent tweets. This endpoint require a bearer token from an approved Twitter Developer account.
@@ -18,6 +20,8 @@ More documentation on the query params are available here:
 
 [Tweet Expansions](https://developer.twitter.com/en/do)
 ## Aviation Stack API
+
+```To be filled out with Trello-15```
 
 ## Covid Tracking Project API
 
