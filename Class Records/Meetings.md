@@ -64,3 +64,37 @@ We finalized UI design, completed most of the slides for presentation, discussed
 #### Summary:
 Discussed status update, new tools to replace old APIs, demo UI and the map components.
 
+# Meeting Records 11/06/2020
+
+- Attendees: Jacob, Stephanie, Xavier, Sebastian, Antonio, Cynthia, Gilbert
+- Start Time: 5:00pm
+- End Time: 6:00pm
+
+#### Member overview.
+1. Antonio Sosa
+  - Working on visualization and interaction (pycharts)
+  
+2. Gilbert Velasquez
+  - Icon for project (Prototypes up for demo - team discussion on team's discord). Researching plotly.
+ 
+3. Jacob Barberena
+  - Working on bargraph representing top 10 countries/cities (Will retrieve from API) 
+ 
+4. Richard Quinn
+  - Working on the flight tracker page - setting up
+  
+5. Cynthia Sustaita, Valeria, Xavier, Sebastian
+  - NewsAPI: Need to modify query to obtain desired response. Data retrieval complete.
+  - CovidAPI: Working on data retrieval.
+  - TwitterAPI: Data retrieval complete, filtering desired fields. 
+  - FlightsAPI: Arrival and departure need to be managed differently, working on the data retrieval. Had to research for new API.
+  http://api.aviationstack.com/v1/flights?access_key=29a2ab9c0a0625c6a59aaa327eb291d7&arr_iata=ELP
+ 
+6. Stephanie
+  - Working on the flight tracker page
+
+7. Kevin
+- Finished layout of newsfeed page. Started presentation slides structure for Monday's (11/09) presentation
+  
+#### Summary:
+Discussed individual updates. Discussing presentation set up.
