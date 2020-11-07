@@ -4,8 +4,9 @@
 import requests
 import json
 
+
 endpoint="https://api.twitter.com/2/tweets/search/recent?query=covid-19&tweet.fields=created_at,author_id,lang,context_annotations&max_results=100"
-headers = {"Authorization": "Bearer <Your Token Here>"}
+headers = {"Authorization": "Bearer AAAAAAAAAAAAAAAAAAAAAMbOIQEAAAAAmOubtSTp%2Fdme345uVc8IOIys4%2Fk%3DcG2CuEuQ5xQppMgn13akWLyvxwxMOiDXIyF25glaQLcnRhNXSu"}
 
 res = requests.get(endpoint,headers=headers)
 
@@ -19,10 +20,3 @@ print()
 for key in fields:
     print(key,":",tweet[key])
     print()
-    
-## Documention on query params/additional fields
-
-#https://developer.twitter.com/en/docs/twitter-api/tweets/search/api-reference/get-tweets-search-recent
-#https://developer.twitter.com/en/docs/twitter-api/fields
-#https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/tweet
-#https://developer.twitter.com/en/docs/twitter-api/expansions
