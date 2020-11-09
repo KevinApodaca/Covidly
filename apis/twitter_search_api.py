@@ -61,7 +61,7 @@ def fetch_tweets(fields=default_fields,expansions=default_expansions,user=defaul
             if('geo' in t.keys()):
                 place_info=places[t['geo']['place_id']]
                 for pk in place_info.keys():
-                    t['geo'+pk]=place_info[pk]
+                    t['geo_'+pk]=place_info[pk]
             author_info=users[t['author_id']]
             for ak in author_info.keys():
                 t[ak]=author_info[ak]
@@ -83,7 +83,7 @@ def fetch_tweets(fields=default_fields,expansions=default_expansions,user=defaul
             if('geo' in t.keys()):
                 place_info=places[t['geo']['place_id']]
                 for pk in place_info.keys():
-                    t['geo'+pk]=place_info[pk]
+                    t['geo_'+pk]=place_info[pk]
             author_info=users[t['author_id']]
             for ak in author_info.keys():
                 t[ak]=author_info[ak]
