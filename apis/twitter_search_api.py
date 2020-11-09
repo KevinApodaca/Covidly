@@ -64,7 +64,7 @@ def fetch_tweets(fields=default_fields,expansions=default_expansions,user=defaul
                     t['geo_'+pk]=place_info[pk]
             author_info=users[t['author_id']]
             for ak in author_info.keys():
-                t[ak]=author_info[ak]
+                t['author_'+ak]=author_info[ak]
             final_tweets.append(t)
     #fetch tweets that were retweeted
     q_retweets=parse_query_args(ref_tweets,'tweets')
@@ -86,7 +86,7 @@ def fetch_tweets(fields=default_fields,expansions=default_expansions,user=defaul
                     t['geo_'+pk]=place_info[pk]
             author_info=users[t['author_id']]
             for ak in author_info.keys():
-                t[ak]=author_info[ak]
+                t['author_'+ak]=author_info[ak]
             final_tweets.append(t)
 
     return sorted(final_tweets,key=lambda t:t['created_at'])

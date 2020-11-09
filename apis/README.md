@@ -10,6 +10,24 @@ Covidly takes advantage of four APIs to report its data - NewsAPI, Twitter, Avia
 
 Covidly uses Twitter's v2 API to fetch recent tweets. This endpoint require a bearer token from an approved Twitter Developer account.
 
+### Retrieving tweets with twitter_search_api.py
+
+Use `fetch_tweets()` to retrieve a list of tweets from Twitter's Recent Search v2 endpoint. `fetch_tweets()` is capable of taking fields, expansions, user fields, and amount of results(10-100), but also has default values provided so specifying is not necessary. 
+The output of `fetch_tweets()` is a list of objects sorted by tweet date, in the shape of:
+```
+- created_at
+- text 
+- id 
+- lang 
+- author_id
+- name 
+- username 
+- profile_image_url
+- geo_full_name *
+- geo_id *
+```
+\* These two fields are only present if the tweet has geospatial data tied to it.
+
 More documentation on the query params are available here:
 
 [API Reference](https://developer.twitter.com/en/docs/twitter-api/tweets/search/api-reference/get-tweets-search-recent)
