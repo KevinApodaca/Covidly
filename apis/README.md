@@ -4,7 +4,20 @@ Covidly takes advantage of four APIs to report its data - NewsAPI, Twitter, Avia
 
 ## News API
 
-``` To be filled out with Trello 13```
+Covidly uses the News API, a simple HTTP REST API that retrieves live articles with endpoint options such as 'top-headlines' and 'everything.' The fields that covidly makes use of through the request are: 
+ - source
+ - title
+ - description
+ - url
+ - urlToImage
+
+More documentation on the request parameters are available here:
+
+[Documentation](https://newsapi.org/docs)
+
+[Top headlines](https://newsapi.org/docs/endpoints/top-headlines)
+
+[Everything](https://newsapi.org/docs/endpoints/everything)
 
 ## Twitter API
 
@@ -19,6 +32,7 @@ More documentation on the query params are available here:
 [Tweet Object Model](https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/tweet)
 
 [Tweet Expansions](https://developer.twitter.com/en/do)
+
 ## Aviation Stack API
 
 ```To be filled out with Trello-15```
