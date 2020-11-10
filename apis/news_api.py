@@ -13,10 +13,11 @@ if __name__ == '__main__':
 	params = {
 		'country': 'us', 
 		'category': 'health',
+		'category': 'science',
 		'sortBy': 'popularity',
 		'apiKey': 'KEY'
 	}
-
+	
 	#Save articles
 	articles = getArticles(endpoint, params)
 	#How to access needed fields for News feed component
