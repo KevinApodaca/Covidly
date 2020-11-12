@@ -16,4 +16,4 @@ To run the project take the following steps
 4. Run the migrations with `python manage.py makemigrations` and then run the command `python manage.py migrate`
 5. Run the local development server with `python manage.py runserver` 
 
-## Deploying Project
+## host Project
