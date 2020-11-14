@@ -98,3 +98,44 @@ Discussed status update, new tools to replace old APIs, demo UI and the map comp
   
 #### Summary:
 Discussed individual updates. Discussing presentation set up.
+
+# Meeting Records 11/13/2020
+
+- Attendees: Jacob, Stephanie, Xavier, Sebastian, Cynthia, Gilbert
+- Start Time: 5:00pm
+- End Time: 6:00pm
+
+#### Member overview.
+  
+2. Gilbert Velasquez
+  - Developed scatterplot with plotly, shows deaths per country. Needs MR from Valeria to add new data and functionality. Meet with Jacob to work on `Trello-20`.
+ 
+3. Jacob Barberena
+  - Finished up `Trello-24` to develop the mirrored bar graph. Needs to get the data from API to show the latest data instead of hardcode.
+ 
+4. Richard Quinn
+  - Worked on flight tracker page. Will work with Stephanie to finish the frontend view for flight tracker.
+  
+5. Cynthia Sustaita
+  - Finished `Trello-13` to retrieve news api, needs to separate into methods for frontend to better capture values.
+  
+6. Valeria
+  - Finished python methods to get data for top 5 states in the U.S. 
+  - Working on getting data about current hospitalized, and current in ICU
+  - Working on getting cases by county from https://www.dshs.texas.gov/coronavirus/additionaldata/
+  - Developed another version of the logo.
+ 
+7. Xavier
+  - Finished python implementation for `Trello-14` to get tweets.
+  
+8. Sebastian
+  - Finished `Trello-15` to get the flight data for El Paso, Dallas, Austin, and San Antonio. Will work on extending this to include data from `Trello-24` to include more locations.
+ 
+6. Stephanie
+  - Catch up with Richard to finalize flight tracker page.
+
+7. Kevin
+  - Finished up `Trello-27` and `Trello-7`.
+  
+#### Summary:
+Discussed individual updates. Discussed presentations for research articles. 
