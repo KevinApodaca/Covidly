@@ -14,7 +14,7 @@ def arrivals(iata):
 #Retrieve data for departing flights at airport
 def departures(iata):
     params = {
-        'access_key': '29a2ab9c0a0625c6a59aaa327eb291d7',
+        'access_key': 'XXXXXXXXXX',
         'dep_iata': iata
     }
     api_result = requests.get('http://api.aviationstack.com/v1/flights', params)
