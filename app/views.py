@@ -11,7 +11,7 @@ def index(request):
 def newsfeed(request):
     return render(request, "pages/newsfeed.html")
 
-def flightcleatracker(request):
+def flighttracker(request):
     return render(request, "pages/flight-tracker.html")
 
 def pages(request):
