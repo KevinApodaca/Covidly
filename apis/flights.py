@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Oct 28 18:50:19 2020
-
-@author: jeremyD
-"""
 import requests
 
 #Retrieve data for arrival flights at airport
