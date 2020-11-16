@@ -106,6 +106,8 @@ Discussed individual updates. Discussing presentation set up.
 - End Time: 6:00pm
 
 #### Member overview.
+1. Antonio Sosa
+ - Created more visuals using plotly and retrieved data from the internet using BeautifulSoup.
   
 2. Gilbert Velasquez
   - Developed scatterplot with plotly, shows deaths per country. Needs MR from Valeria to add new data and functionality. Meet with Jacob to work on `Trello-20`.
