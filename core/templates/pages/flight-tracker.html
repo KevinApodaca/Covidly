@@ -1,191 +1,105 @@
 {% extends 'layouts/base.html' %}
 
+
 {% block content %}
-<h1 class="display-3">Flight Tracker </h1>
-<div class="container">
-    <div class="btn-group btn-toggle mb-2">
-        <button class="btn btn-xs btn-primary active">Newsfeed</button>
-        <button class="btn btn-xs btn-default">Twitter</button>
+    <br>
+    <h1 class="display-3">Flight Tracker </h1>
+  <!-- Renders the interactive map that shows the Ployly Mapbox.
+        Fetches the GeoJSON data from the plotly dataset for countries found here https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json
+   -->
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div class="container-fluid mt--7 bg-secondary">
+      <div class="row">
+        <div class="col-xl-8 mb-5 mb-xl-0">
+          <div class="card shadow fade-in-bottom">
+            <div class="card-body plotly worldmap">
+              <div id="world_map" class="chart" style="height: 100%;"></div>
+            </div>
+            <div style="position: absolute; padding:1.25rem 1.5rem;">
+                <h6 class="text-uppercase text-muted ls-1 mb-1">Global | Cumulative</h6>
+            </div>
+          </div>
+        </div>
+        {% include "includes/header2.html" %}
+      <div class="row mt-15">
+        <div class="col-xl-3000 mb-5 mb-xl-0">
+          <div class="card shadow">
+            <div class="card-header bg-transparent">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h6 class="text-uppercase text-muted ls-1 mb-1">Global | Monthly</h6>
+                  <h2 class="mb-0">International Flights</h2>
+                </div>
+                <div class="col text-right">
+                  <a class="btn btn-sm btn-white" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Info"
+                      data-content="Monthly time series of cases.">
+                      &nbsp;<i class="fas fa-info">&nbsp;</i>
+                    </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body plotly">
+              <div id="daily_growth_chart" class="chart"style="height: 310px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-xl-4">
+          <div class="card shadow">
+            <div class="card-header bg-transparent">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h2 class="mb-0">Cases by Country</h2>
+                </div>
+                <div class="col text-right">
+                  <a href="#!" class="btn btn-sm btn-white">
+                    &nbsp;<i class="fas fa-download">&nbsp;</i>
+                  </a>
+                </div>
+              </div>
+            </div> -->
+            <!-- <div class="table-responsive"> -->
+              <!-- This is the columns of the cases by country table -->
+              <!-- <table id="cases_table" class="table align-items-center table-flush"> -->
+                <!-- <thead class="thead-light"> -->
+                  <!-- <tr>
+                    <th scope="col">Country</th>
+                    <th scope="col">Confirmed</th>
+                    <th scope="col">Recovered</th>
+                    <th scope="col">Deaths</th>
+                  </tr> -->
+                <!-- </thead>
+                <tbody id="cases_table_body"></tbody>
+              </table> -->
+             <!-- </div>
+          </div> -->
+        </div> 
+      </div>
+
+      {% include "includes/footer.html" %}
+
     </div>
-    <h3 class="display-4">Newsfeed―</h3>
-    <div class="row mb-5">
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://source.unsplash.com/random/1920x1080" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">This is the header for the first news article. Some blah blah blah here.</h5>
-                    <p class="card-text">Here is a simple description of the news article from the API. So there is some very simple description that goes here and blah blah today is October 18th</p>
-                    <a href="#" class="btn btn-sm btn-primary">link to article ?</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://source.unsplash.com/random/1920x1080" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">This is the header for the first news article. Some blah blah blah here.</h5>
-                    <p class="card-text">Here is a simple description of the news article from the API. So there is some very simple description that goes here and blah blah today is October 18th</p>
-                    <a href="#" class="btn btn-sm btn-primary">link to article ?</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://source.unsplash.com/random/1920x1080" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">This is the header for the first news article. Some blah blah blah here.</h5>
-                    <p class="card-text">Here is a simple description of the news article from the API. So there is some very simple description that goes here and blah blah today is October 18th</p>
-                    <a href="#" class="btn btn-sm btn-primary">link to article ?</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row mb-5 cstm-height-card">
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://source.unsplash.com/random/1200x900" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">This is the header for the first news article. Some blah blah blah here.</h5>
-                    <p class="card-text">Here is a simple description of the news article from the API. So there is some very simple description that goes here and blah blah today is October 18th</p>
-                    <a href="#" class="btn btn-sm btn-primary">link to article ?</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://source.unsplash.com/random/1500x800" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">This is the header for the first news article. Some blah blah blah here.</h5>
-                    <p class="card-text">Here is a simple description of the news article from the API. So there is some very simple description that goes here and blah blah today is October 18th</p>
-                    <a href="#" class="btn btn-sm btn-primary">link to article ?</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://source.unsplash.com/random/1400x700" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">This is the header for the first news article. Some blah blah blah here.</h5>
-                    <p class="card-text">Here is a simple description of the news article from the API. So there is some very simple description that goes here and blah blah today is October 18th</p>
-                    <a href="#" class="btn btn-sm btn-primary">link to article ? </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-    <style>
-        .cstm-height-card .card-img-top {
-            height: 100px;
-            object-fit: cover;
-        }
-        body {
-            margin-top: 20px;
-        }
-
-           .card {
-               border: none;
-           }
-        .card-img {
-            border-radius: 0;
-        }
-
-        .vgr-cards {
-        .card {
-            display: flex;
-            flex-flow: wrap;
-            flex: 100%;
-            margin-bottom: 40px;
-
-        &:nth-child(even) .card-img-body {
-             order: 2;
-         }
-
-        &:nth-child(even) .card-body {
-             padding-left: 0;
-             padding-right: 1.25rem;
-         }
-
-        @media (max-width: 576px) {
-            display: block;
-        }
-
-        }
-
-        .card-img-body {
-            flex: 1;
-            overflow: hidden;
-            position: relative;
-
-        @media (max-width: 576px) {
-            width: 100%;
-            height: 200px;
-            margin-bottom: 20px;
-        }
-
-        }
-
-        .card-img {
-            width: 100%;
-            height: auto;
-            position: absolute;
-            margin-left: 50%;
-            transform: translateX(-50%);
-
-        @media (max-width: 1140px) {
-            margin: 0;
-            transform: none;
-            width: 100%;
-            height: auto;
-        }
-
-        }
-
-        .card-body {
-            flex: 2;
-            padding: 0 0 0 1.25rem;
-
-        @media (max-width: 576px) {
-            padding: 0
-        }
-
-        }
-        }
-
-    </style>
 
 {% endblock content %}
 
 <!-- Specific JS goes HERE -->
 {% block javascripts %}
 <script>
-    $('.nav-item a').removeClass('active');
-    $('.data-item a').addClass('active');
-    $('.btn-toggle').click(function() {
-        $(this).find('.btn').toggleClass('active');
-
-        if ($(this).find('.btn-primary').length>0) {
-            $(this).find('.btn').toggleClass('btn-primary');
-        }
-        if ($(this).find('.btn-danger').length>0) {
-            $(this).find('.btn').toggleClass('btn-danger');
-        }
-        if ($(this).find('.btn-success').length>0) {
-            $(this).find('.btn').toggleClass('btn-success');
-        }
-        if ($(this).find('.btn-info').length>0) {
-            $(this).find('.btn').toggleClass('btn-info');
-        }
-
-        $(this).find('.btn').toggleClass('btn-default');
-
-    });
-
-    $('form').submit(function(){
-        var radioValue = $("input[name='options']:checked").val();
-        if(radioValue){
-            alert("You selected - " + radioValue);
-        };
-        return false;
-    });
+$('.nav-item a').removeClass('active');
+$('.home-item a').addClass('active');
 </script>
+
+<!-- Sortable Tables -->
+<script defer src="/static/assets/js/sorttable.js"></script>
+
+<!-- Plotly.js CDN -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.54.6/plotly.min.js"></script>
+
+<!-- Load and display data -->
+<script defer src="/static/assets/js/fetch-data.js"></script>
 {% endblock javascripts %}
