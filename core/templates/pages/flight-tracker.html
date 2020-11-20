@@ -7,12 +7,8 @@
   <!-- Renders the interactive map that shows the Ployly Mapbox.
         Fetches the GeoJSON data from the plotly dataset for countries found here https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json
    -->
-    <br>
-    <br>
-    <br>
-    <br>
     
-    <div class="container-fluid mt--7 bg-secondary">
+    <div class="container-fluid mt--1 bg-secondary">
       <div class="row">
         <div class="col-xl-8 mb-5 mb-xl-0">
           <div class="card shadow fade-in-bottom">
@@ -25,18 +21,19 @@
           </div>
         </div>
         {% include "includes/header2.html" %}
-      <div class="row mt-15">
-        <div class="col-xl-3000 mb-5 mb-xl-0">
+        
+      <div class="row mt-5">
+        <div class="col-xl-11 mb-5 mb-xl-0">
           <div class="card shadow">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
-                  <h6 class="text-uppercase text-muted ls-1 mb-1">Global | Monthly</h6>
+                  <h6 class="text-uppercase text-muted ls-1 mb-1">Texas | Monthly</h6>
                   <h2 class="mb-0">International Flights</h2>
                 </div>
                 <div class="col text-right">
                   <a class="btn btn-sm btn-white" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Info"
-                      data-content="Monthly time series of cases.">
+                      data-content="Monthly number of flights.">
                       &nbsp;<i class="fas fa-info">&nbsp;</i>
                     </a>
                 </div>
@@ -78,7 +75,7 @@
               </table> -->
              <!-- </div>
           </div> -->
-        </div> 
+        <!-- </div>  -->
       </div>
 
       {% include "includes/footer.html" %}
