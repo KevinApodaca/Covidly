@@ -64,6 +64,7 @@ We finalized UI design, completed most of the slides for presentation, discussed
 #### Summary:
 Discussed status update, new tools to replace old APIs, demo UI and the map components.
 
+--- 
 # Meeting Records 11/06/2020
 
 - Attendees: Jacob, Stephanie, Xavier, Sebastian, Antonio, Cynthia, Gilbert
@@ -99,6 +100,7 @@ Discussed status update, new tools to replace old APIs, demo UI and the map comp
 #### Summary:
 Discussed individual updates. Discussing presentation set up.
 
+---
 # Meeting Records 11/13/2020
 
 - Attendees: Jacob, Stephanie, Xavier, Sebastian, Cynthia, Gilbert
@@ -138,6 +140,41 @@ Discussed individual updates. Discussing presentation set up.
 
 7. Kevin
   - Finished up `Trello-27` and `Trello-7`.
-  
+
 #### Summary:
 Discussed individual updates. Discussed presentations for research articles. 
+
+---
+# Meeting Records 11/20/2020
+
+- Attendees: Antonio, Gilbert, Jacob, Stephanie, Valeria, Xavier, Kevin
+- Start Time: 5:00pm
+- End Time: 6:00pm
+
+#### Member overview.
+1. Antonio
+ - Investigate map not loading, working to add pie chart to frontend, coordinate with Jacob/ Gilbert to lend help with x-axis of data.
+  
+2. Gilbert & Jacob
+  - Added new methods to retrieve data for grabbing monthly cases. Visualizations for monthly cases by state, having issues with visualization of data with X-Axis.
+ 
+3. Richard Quinn, Stephanie
+  - Fixed and display flight tracker page, working on cleaning up UI to match prototype. Added map component, stats data.
+  
+4. Valeria
+  - Working on retreiving data file from state county cases for top 5 states through python. Fixed comments on git pull request. 
+ 
+7. Xavier
+  - Working on Embedding tweets on frontend newsfeed using Twitter developer docs. Will have a pull request up to test integration.
+
+8. Kevin
+  - Finished up `Trello-25`, `Trello-31`. Working on `Trello-31` and will fix issue with map not loading (`Trello-32`)
+
+9. Cynthia & Sebastian
+  - Working on adding data from news api into the frontend components
+  - Reviewing merge requests
+  
+#### Summary:
+Discussed individual updates. Agreed on new logo for project. Set plans to begin next interm status report project.
+
+---
