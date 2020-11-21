@@ -77,7 +77,7 @@ dataUT = UT.json()
 statesDict = {'texas':dataTX[0],'new york': dataNY[0],'california': dataCA[0],'florida': dataFL[0],'utah': dataUT[0] }
 
 # This methods returns the date of the information retrieved from the following methods 
-def stateDateRetreived(state):
+def stateDateRetrieved(state):
 	state = state.lower()
 	return statesDict[state]['date']
 
@@ -121,5 +121,4 @@ def stateCurrHospitalized(state):
 	state = state.lower()
 	return statesDict[state]['hospitalizedCurrently']
 	
-
 
