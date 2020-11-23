@@ -6,14 +6,18 @@ import dash_core_components as dcc
 import dash_html_components as html
 
 
-    # -- save city displyed in reverse order on actual chart, save in reverse order to show correctly
-cities = ['Houston','San Antonio','Dallas', 'Austin', 'Fort Worth', 
+citiesArr = ['Houston','San Antonio','Dallas', 'Austin', 'Fort Worth', 
     'El Paso', 'Arlington', 'Corpus Cristi', 'Plano', 'Laredo']
 
 
     # -- implement API calls to avoid hard code data
-cases = [100, 200, 300, 400, 420, 500, 600, 700, 800, 850]
-deaths = [25, 50,  75,  130, 350, 250, 300, 215, 612, 667]
+cases = [3270, 2400, 1200, 1400, 2420, 3000, 900, 700, 800, 1000]
+deaths = [320, 230,  455,  830, 350, 350, 300, 215, 610, 665]
+
+    # -- loop ready for API call implemetation (assuming data returns a single number), just need to set: cases, deaths = []
+#for city in citiesArr:
+#    cases.append( getdata.usa_cityCases(city) )
+#    deaths.append( getdata.usa_cityDeaths(city) )
 
 neg_deaths = []
 
@@ -22,34 +26,44 @@ for i in range(len(deaths)):
 
 fig = go.Figure()
 
-    # -- change hover over data, change color to fit project theme
-fig.add_trace(go.Bar(x=cases, y=cities,
+fig.add_trace(go.Bar(x=cases[::-1], y=citiesArr[::-1],
                 base=0,
-                marker_color='lightgreen',
-                name='cases',
-                orientation='h'
-                ))
-fig.add_trace(go.Bar(x=deaths, y=cities,
-                base=neg_deaths,
-                marker_color='lightslategrey',
-                name='deaths',
-                orientation='h'
-                ))
+                marker_color='orange',
+                name='Cases',
+                orientation='h',
+                text = cases[::-1],
+                textposition = 'inside',
+                insidetextanchor = 'start',
+                hoverinfo = 'y',                #change to 'none' to disable bar hover text
+                ) )
+fig.add_trace(go.Bar(x=neg_deaths[::-1], y=citiesArr[::-1],
+                base=0,
+                marker_color='crimson',
+                name='Deaths',
+                orientation='h',
+                text = deaths[::-1],
+                textposition = 'inside',
+                insidetextanchor = 'start',
+                hoverinfo = 'y',                #change to 'none' to disable bar hover text
+                ) )
+
 
 fig.update_layout(
+    title = "Cases vs Deaths per Major City in Texas",
     autosize=False,
-    width=800,          #can change dimensions depending on requirement
-    height=450,
-    barmode = 'stack'
+    width=1000,          # this is the size the graph will actually take up,
+    barmode = 'stack',   #   can be removed to show so plotly fits automaticaly
 )
+#fig.show()
 
-'''
+#'''
 #region
 app = dash.Dash()
 app.layout = html.Div([
-    dcc.Graph(figure=fig)
-])
+    dcc.Graph(figure=fig,
+    style={'overflowY': 'scroll', 'width': 800},        # this line sets the scroll bar, 
+    )                                                   #  couldnt find way to implement with just plotly
+])                                                      # Note: width refers to what the container shows
 app.run_server(debug=False, use_reloader=False)
 #endregion
-'''
-
+#'''
