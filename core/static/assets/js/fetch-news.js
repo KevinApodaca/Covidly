@@ -12,7 +12,7 @@ function load_tweets() {
             let tweets = document.getElementById("tweets");
             let closed=true;
             let content = "";
-            tweets.innerHTML='<button onclick="renderEmbeds()" class="btn btn-xs btn-default">Render Media</button>';
+            tweets.innerHTML='<button onclick="renderEmbeds()" class="btn btn-xs btn-default">Render Embedded Tweets</button>';
             for(tweet of data){
                 if(i%3==0){
                     content+='<div class="row mb-5">';
