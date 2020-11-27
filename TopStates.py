@@ -5,6 +5,12 @@ from datetime import datetime
 import plotly.graph_objects as go
 from plotly.offline import plot
 
+TXCases, TXDates = covid_daily_api.getMonthlyCases("texas")
+CACases, CADates = covid_daily_api.getMonthlyCases("california")
+NYCases, NYDates = covid_daily_api.getMonthlyCases("new york")
+UTCases, UTDates = covid_daily_api.getMonthlyCases("utah")
+FLCases, FLDates = covid_daily_api.getMonthlyCases("florida")
+
 # This Method is used to modify the date attribute that will be used for our X - axis  mm/dd/yy
 def fixAxis():
     for i in range(len(TXDates)):
@@ -36,11 +42,7 @@ def fixAxis():
 
 # This Method is used to create the Figure containing the 6 different Scatterplots
 def createFigure():
-    TXCases, TXDates = covid_daily_api.getMonthlyCases("texas")
-    CACases, CADates = covid_daily_api.getMonthlyCases("california")
-    NYCases, NYDates = covid_daily_api.getMonthlyCases("new york")
-    UTCases, UTDates = covid_daily_api.getMonthlyCases("utah")
-    FLCases, FLDates = covid_daily_api.getMonthlyCases("florida")
+
 
     day = (int(datetime.today().strftime("%d")) - 1)
     fixAxis()
@@ -94,4 +96,6 @@ def createFigure():
                 ]),
             )
         ])
-return StateGraph
+    return StateGraph
+
+
