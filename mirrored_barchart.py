@@ -51,7 +51,7 @@ fig.add_trace(go.Bar(x=neg_deaths[::-1], y=citiesArr[::-1],
 fig.update_layout(
     title = "Cases vs Deaths per Major City in Texas",
     autosize=False,
-    width=1000,          # this is the size the graph will actually take up,
+    width=800,          # this is the size the graph will actually take up,
     barmode = 'stack',   #   can be removed to show so plotly fits automaticaly
 )
 #fig.show()
