@@ -5,6 +5,7 @@ window.addEventListener("load", function() {
     load_cases_table();
     load_realtime_growth_chart();
     load_daily_growth_chart();
+    load_news_articles();
 });
 
 
@@ -321,6 +322,21 @@ function load_daily_growth_chart() {
     };
 
     xhttp.open("GET", "daily_growth");
+    xhttp.send();
+}
+
+function load_news_articles() {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var data = JSON.parse(this.response);
+            console.log(data.title.values[0]);
+            document.getElementById("news-title").innerText = data.title.values[0];
+        }
+    };
+
+    xhttp.open("GET", "news_articles");
     xhttp.send();
 }
 
