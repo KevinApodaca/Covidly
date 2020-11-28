@@ -5,6 +5,7 @@ from django.template import loader
 import json
 
 from . import getdata, maps
+from . import twitter_search_api as twitter
 
 # Renders the data of index.html
 def index(request): 
@@ -89,3 +90,10 @@ def daily_report(request):
 def mapspage(request):
     plot_div = maps.usa_map()
     return render(request, template_name='pages/maps.html', context={'usa_map': plot_div})
+
+def tweets(request):
+    tweets = twitter.fetch_tweets()
+    json_string = json.dumps(tweets)
+    return HttpResponse(json_string, content_type='application/json')
+    
+    
