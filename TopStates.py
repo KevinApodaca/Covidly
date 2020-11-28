@@ -97,6 +97,3 @@ def createFigure():
             )
         ])
     return StateGraph
-
-
-plot(createFigure())
