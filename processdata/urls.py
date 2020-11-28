@@ -11,4 +11,5 @@ urlpatterns = [
     path('daily_growth', views.daily_growth, name='daily_growth'),
     path('daily_report', views.daily_report, name='daily_report'),
     path('news_articles', views.news_articles, name='news_articles')
+    path('tweets',views.tweets, name='tweets')
 ]

@@ -178,3 +178,34 @@ Discussed individual updates. Discussed presentations for research articles.
 Discussed individual updates. Agreed on new logo for project. Set plans to begin next interm status report project.
 
 ---
+
+# Meeting Records 11/27/2020
+
+- Attendees: Antonio, Gilbert, Jacob, Stephanie, Valeria, Xavier, Kevin
+- Start Time: 5:00pm
+- End Time: 6:00pm
+
+#### Member overview.
+1. Antonio
+ - Working on two maps for displaying heatmaps, pie chart
+  
+2. Gilbert & Jacob, Antonio
+  - Finalized scatterplot to display statistics for active cases for the top 5 states. Fixed date formatting issue. Added scrollbar to the mirror bar graph for reports.
+ 
+3. Richard Quinn, Stephanie
+  - Work with Cynthia, Sebastian to render newsfeed HTML into frontend,
+  
+4. Valeria
+  - Finished up new logos for project. 
+ 
+7. Xavier
+  - Worked on embedding tweets, can render top 100 covid-related tweets to frontend newsfeed.
+
+8. Kevin
+  - Deployed covidly project to Heroku, finished `Trello-7`, working on `Trello-38` and `Trello-39` to fix small ui elements to newsfeed component.
+
+9. Cynthia & Sebastian
+  - Rework both the fetching of news data and the flights information to better adjust to frontend.
+  - Display the newsfeed article, link url, and description on frontend. Need to make it dynamic to generate top 6 stories with efficient code.
+  - Rendering
+  - Can now render all 6 articles dynamically.

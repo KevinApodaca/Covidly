@@ -1,16 +1,19 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
+
 <h1 class="display-3">Covidly Newsfeed </h1>
 <div class="container">
     <div class="btn-group btn-toggle mb-2">
-        <button class="btn btn-xs btn-primary active">Newsfeed</button>
-        <button class="btn btn-xs btn-default">Twitter</button>
+        <button onclick="toggle()" class="btn btn-xs btn-primary active">Newsfeed</button>
+        <button onclick="toggle()" class="btn btn-xs btn-default">Twitter</button>
     </div>
+  
     <h3 class="display-4">―Newsfeed―</h3>
     <div class="row mb-5" id="news"> 
-
     </div>
+    <div id="tweets" style="display: none;"><div class="loader"></div></div>
+  
 </div>
 
     <style>
@@ -90,6 +93,19 @@
 
         }
         }
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
     </style>
 
@@ -130,4 +146,38 @@
 </script>
 
 <script defer src="/static/assets/js/fetch-data.js"></script>
+<!-- Load and display data -->
+<script>function renderEmbeds(){window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+    console.log('in function')
+    return t;
+  }(document, "script", "twitter-wjs"))};
+  </script>
+  <script>function toggle(){
+      var n = document.getElementById("newsapi");
+      var t = document.getElementById("tweets");
+      if(n.style.display === "none"){
+        console.log('toggle news');
+        n.style.display = "inline";
+        t.style.display = "none";
+      }
+      else{
+        console.log('toggle twitter');
+        n.style.display = "none";
+        t.style.display = "inline";
+      }
+  }
+  </script>
+<script defer src="/static/assets/js/fetch-news.js"></script>
 {% endblock javascripts %}
