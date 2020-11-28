@@ -10,5 +10,5 @@ urlpatterns = [
     path('realtime_growth', views.realtime_growth, name='realtime_growth'),
     path('daily_growth', views.daily_growth, name='daily_growth'),
     path('daily_report', views.daily_report, name='daily_report'),
-    path('news-articles', views.news_articles, name='news_articles')
+    path('news_articles', views.news_articles, name='news_articles')
 ]

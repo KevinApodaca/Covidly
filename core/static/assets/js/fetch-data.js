@@ -331,16 +331,30 @@ function load_news_articles() {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var data = JSON.parse(this.response);
-            console.log(data.title.values[0]);
-            document.getElementById("news-title").innerText = data.title.values[0];
+
+            const news = document.getElementById('news');
+
+            for (const index in data.title) {
+                cardContent = `
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://source.unsplash.com/random/1920x1080" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">${data.title[index]}</h5>
+                            <p class="card-text">${data.description[index]}</p>
+                            <button class="btn btn-sm btn-primary">link to article</button>
+                        </div>
+                    </div>
+                </div>`;
+
+                news.innerHTML += cardContent;
+            }
         }
     };
 
     xhttp.open("GET", "news_articles");
     xhttp.send();
 }
-
-
 
 function addCommas(input) {
     var number_string = input.toString();

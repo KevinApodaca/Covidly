@@ -8,6 +8,7 @@ import json
 import datetime
 import platform
 import pandas as pd
+from pandas import DataFrame
 
 # Just changes the format of datetime depending on which OS you're on. Otherwise more bugs to fix and we don't like that.
 if platform.system() == 'Linux':
@@ -129,7 +130,7 @@ def news_articles():
         'country': 'us', 
 		'category': 'health',
 		'sortBy': 'popularity',
-		'apiKey': '265a30250d594634a08e9b722f993b41'
+		'apiKey': 'KEY'
         }
 
     response = requests.get(endpoint, params=params)
@@ -138,4 +139,3 @@ def news_articles():
     articles = articles[:6]
     df = DataFrame(articles, columns=['title', 'description', 'url', 'urlToImage'])
     return df
-
