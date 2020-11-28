@@ -17,3 +17,4 @@ To run the project take the following steps
 5. Run the local development server with `python manage.py runserver` 
 
 ## Deploying Project
+There was a mistake on title 
