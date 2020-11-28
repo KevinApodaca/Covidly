@@ -1,26 +1,53 @@
 {% extends 'layouts/base.html' %}
 
-{% block title %} Maps {% endblock title %}
 
 {% block content %}
-<div class="container-fluid pt-6 bg-secondary">
-  <h2>Flight Tracker</h2>
-  <p>Needs to be done. Come back to this. @Kevin Apodaca</p>
-  <div class="row">
-    <div class="col-xl-12 mb-5 mb-xl-0">  <!-- Show the same map as before for now. -->
-      <div class="card shadow fade-in-bottom">
-        <div class="card-body plotly worldmap">
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.54.6/plotly.min.js"></script>
+    <br>
+    <h1 class="display-3">Flight Tracker </h1>
+  <!-- Renders the interactive map that shows the Ployly Mapbox.
+        Fetches the GeoJSON data from the plotly dataset for countries found here https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json
+   -->
+    <div class="container-fluid mt-1 bg-secondary">
+      <div class="row">
+        <div class="col-xl-8 mb-5 mb-xl-0">
+          <div class="card shadow fade-in-bottom">
+            <div class="card-body plotly worldmap">
+              <div id="world_map" class="chart" style="height: 100%;"></div>
+            </div>
+            <div style="position: absolute; padding:1.25rem 1.5rem;">
+                <h6 class="text-uppercase text-muted ls-1 mb-1">Global | Cumulative</h6>
+            </div>
+          </div>
         </div>
-        <div style="position: absolute; padding:1.25rem 1.5rem;">
-            <h6 class="text-uppercase text-muted ls-1 mb-1">Flight tracker</h6>
-            <h2 class="text-dark mb-0">Send help</h2>
+        {% include "includes/header2.html" %}
+      <div class="row mt-5">
+        <div class="col-xl-11 mb-5 mb-xl-0">
+          <div class="card shadow">
+            <div class="card-header bg-transparent">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h6 class="text-uppercase text-muted ls-1 mb-1">Texas | Monthly</h6>
+                  <h2 class="mb-0">Texas Flights</h2>
+                </div>
+                <div class="col text-right">
+                  <a class="btn btn-sm btn-white" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Info"
+                      data-content="Monthly number of flights..">
+                      &nbsp;<i class="fas fa-info">&nbsp;</i> 
+                    </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body plotly">
+              <div id="daily_growth_chart" class="chart"style="height: 310px;"></div>
+            </div>
+          </div>
         </div>
       </div>
+
+      {% include "includes/footer.html" %}
+
     </div>
-  </div>
-  {% include "includes/footer.html" %}
-</div>
 
 {% endblock content %}
 
@@ -28,6 +55,15 @@
 {% block javascripts %}
 <script>
 $('.nav-item a').removeClass('active');
-$('.maps-item a').addClass('active');
+$('.home-item a').addClass('active');
 </script>
+
+<!-- Sortable Tables -->
+<script defer src="/static/assets/js/sorttable.js"></script>
+
+<!-- Plotly.js CDN -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.54.6/plotly.min.js"></script>
+
+<!-- Load and display data -->
+<script defer src="/static/assets/js/fetch-data.js"></script>
 {% endblock javascripts %}
