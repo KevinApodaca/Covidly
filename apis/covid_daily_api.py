@@ -1,6 +1,5 @@
+# importing the requests library 
 import requests
-import json
-
 
 # location given here 
 location = "University of Texas at El Paso"
@@ -18,7 +17,7 @@ US = requests.get(url = URL_US, params = PARAMS)
 # extracting data in json format 
 dataUS = US.json() 
 
-# This methods returns the date of the information retreived from the following methods 
+# This methods returns the date of the information retrieved from the following methods 
 def date_us():
 	return dataUS[0]['date']
 
@@ -72,135 +71,55 @@ dataNY = NY.json()
 dataCA = CA.json()
 dataFL = FL.json()
 dataUT = UT.json() 
+
+
 #data[0] is the most recent data collected
+statesDict = {'texas':dataTX[0],'new york': dataNY[0],'california': dataCA[0],'florida': dataFL[0],'utah': dataUT[0] }
 
-
-# This methods returns the date of the information retreived from the following methods 
-def stateDateRetreived(state):
-	state.lower()
-	if state == "texas":
-		return dataTX[0]['date']
-	if state == "new york":
-		return dataNY[0]['date']
-	if state == "california":
-		return dataCA[0]['date']
-	if state == "florida":
-		return dataFL[0]['date']
-	if state == "utah":
-		return dataUT[0]['date']
+# This methods returns the date of the information retrieved from the following methods 
+def stateDateRetrieved(state):
+	state = state.lower()
+	return statesDict[state]['date']
 
 # This method returns the last updated information of the state of texas in ET 
 def stateLastUpdated(state):
-	state.lower()
-	if state == "texas":
-		return dataTX[0]['lastUpdateEt']
-	if state == "new york":
-		return dataNY[0]['lastUpdateEt']
-	if state == "california":
-		return dataCA[0]['lastUpdateEt']
-	if state == "florida":
-		return dataFL[0]['lastUpdateEt']
-	if state == "utah":
-		return dataUT[0]['lastUpdateEt']
+	state = state.lower()
+	return statesDict[state]['lastUpdateEt']
 
 # This method returns the positive cases in the state 
 def statePostiveCases(state):
-	state.lower()
-	if state == "texas":
-		return dataTX[0]['positive']
-	if state == "new york":
-		return dataNY[0]['positive']
-	if state == "california":
-		return dataCA[0]['positive']
-	if state == "florida":
-		return dataFL[0]['positive']
-	if state == "utah":
-		return dataUT[0]['positive']
+	state = state.lower()
+	return statesDict[state]['positive']
 
-# This method returns the increase in positive cases in the state
+# This method returns the increase inpositive cases in the state
 def statePostiveIncrease(state):
-	state.lower()
-	if state == "texas":
-		return dataTX[0]['positiveIncrease']
-	if state == "new york":
-		return dataNY[0]['positiveIncrease']
-	if state == "california":
-		return dataCA[0]['positiveIncrease']
-	if state == "florida":
-		return dataFL[0]['positiveIncrease']
-	if state == "utah":
-		return dataUT[0]['positiveIncrease']
+	state = state.lower()
+	return statesDict[state]['positiveIncrease']
 
 # This method returns the negative cases in the state
 def stateNegativeCases(state):
-	state.lower()
-	if state == "texas":
-		return dataTX[0]['negative']
-	if state == "new york":
-		return dataNY[0]['negative']
-	if state == "california":
-		return dataCA[0]['negative']
-	if state == "florida":
-		return dataFL[0]['negative']
-	if state == "utah":
-		return dataUT[0]['negative']
+	state = state.lower()
+	return statesDict[state]['negative']
 
 # This method returns the recovered cases in the state
 def stateRecoveredCases(state):
-	state.lower()
-	if state == "texas":
-		return dataTX[0]['recovered']
-	if state == "new york":
-		return dataNY[0]['recovered']
-	if state == "california":
-		return dataCA[0]['recovered']
-	if state == "florida":
-		return dataFL[0]['recovered']
-	if state == "utah":
-		return dataUT[0]['recovered']
-
+	state = state.lower()
+	return statesDict[state]['recovered']
+   
 #This method returns the total deaths in the state
 def stateDeaths(state):
-	state.lower()
-	if state == "texas":
-		return dataTX[0]['death']
-	if state == "new york":
-		return dataNY[0]['death']
-	if state == "california":
-		return dataCA[0]['death']
-	if state == "florida":
-		return dataFL[0]['death']
-	if state == "utah":
-		return dataUT[0]['death']
+	state = state.lower()
+	return statesDict[state]['death']
+    
  #This method returns the increase in deaths in the state
 def stateDeathsIncrease(state):
-	state.lower()
-	if state == "texas":
-		return dataTX[0]['deathIncrease']
-	if state == "new york":
-		return dataNY[0]['deathIncrease']
-	if state == "california":
-		return dataCA[0]['deathIncrease']
-	if state == "florida":
-		return dataFL[0]['deathIncrease']
-	if state == "utah":
-		return dataUT[0]['deathIncrease']
+	state = state.lower()
+	return statesDict[state]['deathIncrease']
+
 # This method returns the current hospitalized people in the state
 def stateCurrHospitalized(state):
-	state.lower()
-	if state == "texas":
-		return dataTX[0]['hospitalizedCurrently']
-	if state == "new york":
-		return dataNY[0]['hospitalizedCurrently']
-	if state == "california":
-		return dataCA[0]['hospitalizedCurrently']
-	if state == "florida":
-		return dataFL[0]['hospitalizedCurrently']
-	if state == "utah":
-		return dataUT[0]['hospitalizedCurrently']
-
-
-
+	state = state.lower()
+	return statesDict[state]['hospitalizedCurrently']
 
 def getMonthlyCases(state):
     stateDailyCases = []
@@ -234,32 +153,3 @@ def getMonthlyCases(state):
 
 
 
-# DELETE THIS AFTER FINSISHED TESTING
-# print("Texas: ", getMonthlyCases("texas"))
-# print("__________________________________________")
-# print("California: ", getMonthlyCases("california"))
-# print("__________________________________________")
-# print("New York: ", getMonthlyCases("NEW YORK"))
-# print("__________________________________________")
-# print("Utah: ", getMonthlyCases("utaH"))
-# print("__________________________________________")
-# print("Florida: ", getMonthlyCases("Florida"))
-# print("__________________________________________")
-
-
-# state="tx"
-# endpoint='https://api.covidtracking.com/v1/states/'
-
-# #fetch/process daily info for state
-# res = requests.get(endpoint+state+'/daily.json')
-# covid_daily = json.loads(res.content)
-
-# today=covid_daily[0]
-
-# print('## Info about today\n')
-# print('Today\'s Date:',today['date'])
-# print('Number of Positive Cases:',today['positive'],"cases")
-# print('Patients Hospitalized:',today['hospitalizedCurrently'],"patients")
-# print('Death Toll:',today['death'],"deaths")
-# print('Increase in positive cases:',today['positiveIncrease'],"new cases")
-# print('Increase in reported deaths:',today['deathIncrease'],"new deaths")
