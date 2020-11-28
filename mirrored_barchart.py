@@ -6,9 +6,20 @@ import dash_core_components as dcc
 import dash_html_components as html
 
 
+#   IMPORTANT NOTE: 
+#     I used Sourcerree to merge 'Trelo-12-covidAPI' into 'Trello-24-mirrored_barchart' to get the updated covi_daily_api.py file 
+#     before having the full merge pull request was approved, not sure if this would affect stuff
+
+
 citiesArr = ['Houston','San Antonio','Dallas', 'Austin', 'Fort Worth', 
     'El Paso', 'Arlington', 'Corpus Cristi', 'Plano', 'Laredo']
 
+#       For Sebastian's Flight Data: 
+#arlington and plano not supported
+# Lubbock and amarillo are good
+
+
+#use Valeria's NY cities data
 
     # -- implement API calls to avoid hard code data
 cases = [3270, 2400, 1200, 1400, 2420, 3000, 900, 700, 800, 1000]
