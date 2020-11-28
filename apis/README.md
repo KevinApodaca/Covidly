@@ -38,7 +38,6 @@ The output of `fetch_tweets()` is a list of objects sorted by tweet date, in the
 - profile_image_url
 - geo_full_name *
 - geo_id *
-- oembed
 ```
 \* These two fields are only present if the tweet has geospatial data tied to it.
 
