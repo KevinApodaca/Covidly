@@ -28,7 +28,7 @@ def departures(iata):
         df['departure'].append(flight['arrival']['airport'])
     return df
 
-#Retrieve data for arrivals/departing airport returns dictioaries of departures and arrivals
+#Retrieve data for arrivals/departing airport returns dataframe
 def airport(city, iata):
     arrivalSources = arrivals(iata)
     departureDestinations = departures(iata)
@@ -49,6 +49,7 @@ def airport(city, iata):
         df.update({'city': ([city]*len(arrivalSources['arrival']))})
     return pd.DataFrame(df)
 
+#Returns dataframe of all supported cities
 def supportedAirports():
     supportedList = {'El Paso': ['ELP'], 'San Antonio': ['SAT'], 'Dallas': ['DAL', 'DFW'], 'Austin': ['AUS'], 'Houston': ['HOU'], 'Fort Worth': ['FTW', 'AFW'], 'Corpus Christi': ['CRP'], 'Laredo': ['LRD'], 'Lubbock': ['LBB'], 'Amarillo': ['AMA']}
     frames = []
