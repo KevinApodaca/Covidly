@@ -338,11 +338,11 @@ function load_news_articles() {
                 cardContent = `
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="https://source.unsplash.com/random/1920x1080" class="card-img-top" alt="...">
-                        <div class="card-body">
+                        <img src=${data.urlToImage[index]} class="card-img-top" alt="...">
+                        <div class="card-body ">
                             <h5 class="card-title">${data.title[index]}</h5>
                             <p class="card-text">${data.description[index]}</p>
-                            <button class="btn btn-sm btn-primary">link to article</button>
+                            <a href='${data.url[index]}' class="btn btn-sm btn-primary">Link to article</a>
                         </div>
                     </div>
                 </div>`;
