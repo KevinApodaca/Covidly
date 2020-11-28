@@ -5,6 +5,7 @@ window.addEventListener("load", function() {
     load_cases_table();
     load_realtime_growth_chart();
     load_daily_growth_chart();
+    load_news_articles();
 });
 
 
@@ -324,7 +325,36 @@ function load_daily_growth_chart() {
     xhttp.send();
 }
 
+function load_news_articles() {
+    var xhttp = new XMLHttpRequest();
 
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var data = JSON.parse(this.response);
+
+            const news = document.getElementById('news');
+
+            for (const index in data.title) {
+                cardContent = `
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src=${data.urlToImage[index]} class="card-img-top" alt="...">
+                        <div class="card-body ">
+                            <h5 class="card-title">${data.title[index]}</h5>
+                            <p class="card-text">${data.description[index]}</p>
+                            <a href='${data.url[index]}' class="btn btn-sm btn-primary">Link to article</a>
+                        </div>
+                    </div>
+                </div>`;
+
+                news.innerHTML += cardContent;
+            }
+        }
+    };
+
+    xhttp.open("GET", "news_articles");
+    xhttp.send();
+}
 
 function addCommas(input) {
     var number_string = input.toString();
