@@ -149,7 +149,3 @@ def getMonthlyCases(state):
             stateDailyCases.append(dataUT[i]['hospitalizedCurrently'])
             stateDates.append(dataUT[i]['date'] %10000)
     return stateDailyCases, stateDates
-
-
-
-

@@ -3,9 +3,12 @@
     @Team 2
     Description: This file is used to scrape the latest COVID data from the Johns Hopkins CSSE repository as well as the Our World In Data and The New York Times.
 """
+import requests
+import json
 import datetime
 import platform
 import pandas as pd
+from pandas import DataFrame
 
 # Just changes the format of datetime depending on which OS you're on. Otherwise more bugs to fix and we don't like that.
 if platform.system() == 'Linux':
@@ -118,4 +121,21 @@ def usa_counties():
     df = pd.merge(df, populations, on='fips')
     df['cases/capita'] = (df.cases / df.Population)*100000
 
+    return df
+
+#Obtain list of articles from News API
+def news_articles():
+    endpoint = 'http://newsapi.org/v2/top-headlines?'
+    params = {
+        'country': 'us', 
+		'category': 'health',
+		'sortBy': 'popularity',
+		'apiKey': 'KEY'
+        }
+
+    response = requests.get(endpoint, params=params)
+    news_data = response.json()
+    articles = news_data['articles']
+    articles = articles[:6]
+    df = DataFrame(articles, columns=['title', 'description', 'url', 'urlToImage'])
     return df

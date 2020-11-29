@@ -13,7 +13,7 @@ default_fields=['created_at','author_id','lang','possibly_sensitive']
 default_expansions=['referenced_tweets.id','author_id']#author_id necessary here as well to retrieve author info
 default_user=['name','username']
 token= ''
-results='100'
+results='25'
 headers = {"Authorization": "Bearer " + token}
 base_endpoint="https://api.twitter.com/2/tweets/search/recent?query="
 oembed_endpoint="https://publish.twitter.com/oembed?url=https://twitter.com/"
@@ -25,7 +25,7 @@ def filter_tweet(tweet):
     is_retweet = False
     if('referenced_tweets' in t_fields):
         for rt in tweet['referenced_tweets']:
-            if(rt['type']=='retweeted'):
+            if(rt['type']=='retweeted' or rt['type']=='replied_to'):
                     is_retweet = True
                     break
     is_sensitive = False
