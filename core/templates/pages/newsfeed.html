@@ -10,8 +10,7 @@
     </div>
   
     <h3 class="display-4">―Newsfeed―</h3>
-    <div class="row mb-5" id="news"> 
-    </div>
+    <div class="row mb-5" id="news"> </div>
     <div id="tweets" style="display: none;"><div class="loader"></div></div>
   
 </div>
@@ -165,7 +164,7 @@
   }(document, "script", "twitter-wjs"))};
   </script>
   <script>function toggle(){
-      var n = document.getElementById("newsapi");
+      var n = document.getElementById("news");
       var t = document.getElementById("tweets");
       if(n.style.display === "none"){
         console.log('toggle news');
