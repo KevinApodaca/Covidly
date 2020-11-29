@@ -342,7 +342,7 @@ function load_news_articles() {
                         <div class="card-body ">
                             <h5 class="card-title">${data.title[index]}</h5>
                             <p class="card-text">${data.description[index]}</p>
-                            <a href='${data.url[index]}' class="btn btn-sm btn-primary">Link to article</a>
+                            <a href='${data.url[index]}' target="_blank" class="btn btn-sm btn-primary">Link to article</a>
                         </div>
                     </div>
                 </div>`;
