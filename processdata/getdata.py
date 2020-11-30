@@ -136,6 +136,6 @@ def news_articles():
     response = requests.get(endpoint, params=params)
     news_data = response.json()
     articles = news_data['articles']
-    articles = articles[:6]
+    articles = articles[:9]
     df = DataFrame(articles, columns=['title', 'description', 'url', 'urlToImage'])
     return df
