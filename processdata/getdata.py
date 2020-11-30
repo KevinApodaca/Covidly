@@ -106,7 +106,7 @@ def percentage_trends():
 
 # This method generates the sortable table for the frontend that shows stats of all countries.
 def global_cases():
-    df = daily_report()[['Country_Region', 'Confirmed', 'Deaths', 'Recovered', 'Active']]
+    df = daily_report()[['Country_Region', 'Confirmed', 'Recovered', 'Deaths', 'Active']]
     df.rename(columns={'Country_Region':'Country'}, inplace=True) 
     df = df.groupby('Country', as_index=False).sum()
     df.sort_values(by=['Confirmed'], ascending=False, inplace=True)
