@@ -20,8 +20,6 @@ else:
 
 # This method fetches the daily report of COVID cases from CSSE, these are global classes. To fetch just U.S cases we can switch the report_directory to get 'csse_covid_19_daily_reports_us'.csse_covid_19_daily_reports. Stores data as a CSV file of new cases.
 def daily_report(date_string=None):
-    # Reports aggegrade data, dating as far back to 01-22-2020
-    # If passing arg, must use above date formatting '01-22-2020'
     report_directory = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/'
     
     if date_string is None: 
