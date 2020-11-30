@@ -341,7 +341,7 @@ function load_news_articles() {
                         <img src=${data.urlToImage[index]} class="card-img-top" alt="...">
                         <div class="card-body ">
                             <h5 class="card-title">${data.title[index]}</h5>
-                            <p class="card-text">${data.description[index]}</p>
+                            <p class="card-text scroll">${data.description[index]}</p>
                             <a href='${data.url[index]}' target="_blank" class="btn btn-sm btn-primary">Read full article</a>
                         </div>
                     </div>
