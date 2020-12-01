@@ -1,11 +1,15 @@
 # importing the requests library 
 import requests
+# importing the pandas Library 
+import pandas as pd
 
 # location given here 
 location = "University of Texas at El Paso"
   
 # defining a params dict for the parameters to be sent to the API 
 PARAMS = {'address':location} 
+
+
 
 ### US INFO ### 
 
@@ -49,6 +53,8 @@ def currHospitalized_us():
 def currInIcu_us():
 	 return dataUS[0]['inIcuCurrently']
 
+    
+    
 ### STATES INFO ### 
 
 # api-endpoint 
@@ -123,3 +129,17 @@ def stateCurrHospitalized(state):
 	
 
 
+### COUNTIES INFO ### 
+
+#DATAFRAME 
+counties = pd.read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv")
+## counties['date','county','state','fips','cases','deatths']
+
+# This method returns the positive cases in the county. Works for any County in the US.
+def casesCounty(countyP, stateP): # it takes in two parameters the county's name and the state's name
+    
+    findRecentDate = counties[-1:]['date']
+    recentDate = findRecentDate.values[0]
+    
+    res = counties.loc[ (counties['county'] == countyP) & (counties['state'] == stateP) & ((counties['date']) == recentDate) ]
+    return res['cases'].values[0]
