@@ -64,6 +64,7 @@ We finalized UI design, completed most of the slides for presentation, discussed
 #### Summary:
 Discussed status update, new tools to replace old APIs, demo UI and the map components.
 
+--- 
 # Meeting Records 11/06/2020
 
 - Attendees: Jacob, Stephanie, Xavier, Sebastian, Antonio, Cynthia, Gilbert
@@ -98,3 +99,113 @@ Discussed status update, new tools to replace old APIs, demo UI and the map comp
   
 #### Summary:
 Discussed individual updates. Discussing presentation set up.
+
+---
+# Meeting Records 11/13/2020
+
+- Attendees: Jacob, Stephanie, Xavier, Sebastian, Cynthia, Gilbert
+- Start Time: 5:00pm
+- End Time: 6:00pm
+
+#### Member overview.
+1. Antonio Sosa
+ - Created more visuals using plotly and retrieved data from the internet using BeautifulSoup.
+  
+2. Gilbert Velasquez
+  - Developed scatterplot with plotly, shows deaths per country. Needs MR from Valeria to add new data and functionality. Meet with Jacob to work on `Trello-20`.
+ 
+3. Jacob Barberena
+  - Finished up `Trello-24` to develop the mirrored bar graph. Needs to get the data from API to show the latest data instead of hardcode.
+ 
+4. Richard Quinn
+  - Worked on flight tracker page. Will work with Stephanie to finish the frontend view for flight tracker.
+  
+5. Cynthia Sustaita
+  - Finished `Trello-13` to retrieve news api, needs to separate into methods for frontend to better capture values.
+  
+6. Valeria
+  - Finished python methods to get data for top 5 states in the U.S. 
+  - Working on getting data about current hospitalized, and current in ICU
+  - Working on getting cases by county from https://www.dshs.texas.gov/coronavirus/additionaldata/
+  - Developed another version of the logo.
+ 
+7. Xavier
+  - Finished python implementation for `Trello-14` to get tweets.
+  
+8. Sebastian
+  - Finished `Trello-15` to get the flight data for El Paso, Dallas, Austin, and San Antonio. Will work on extending this to include data from `Trello-24` to include more locations.
+ 
+6. Stephanie
+  - Catch up with Richard to finalize flight tracker page.
+
+7. Kevin
+  - Finished up `Trello-27` and `Trello-7`.
+
+#### Summary:
+Discussed individual updates. Discussed presentations for research articles. 
+
+---
+# Meeting Records 11/20/2020
+
+- Attendees: Antonio, Gilbert, Jacob, Stephanie, Valeria, Xavier, Kevin
+- Start Time: 5:00pm
+- End Time: 6:00pm
+
+#### Member overview.
+1. Antonio
+ - Investigate map not loading, working to add pie chart to frontend, coordinate with Jacob/ Gilbert to lend help with x-axis of data.
+  
+2. Gilbert & Jacob
+  - Added new methods to retrieve data for grabbing monthly cases. Visualizations for monthly cases by state, having issues with visualization of data with X-Axis.
+ 
+3. Richard Quinn, Stephanie
+  - Fixed and display flight tracker page, working on cleaning up UI to match prototype. Added map component, stats data.
+  
+4. Valeria
+  - Working on retreiving data file from state county cases for top 5 states through python. Fixed comments on git pull request. 
+ 
+7. Xavier
+  - Working on Embedding tweets on frontend newsfeed using Twitter developer docs. Will have a pull request up to test integration.
+
+8. Kevin
+  - Finished up `Trello-25`, `Trello-31`. Working on `Trello-31` and will fix issue with map not loading (`Trello-32`)
+
+9. Cynthia & Sebastian
+  - Working on adding data from news api into the frontend components
+  - Reviewing merge requests
+  
+#### Summary:
+Discussed individual updates. Agreed on new logo for project. Set plans to begin next interm status report project.
+
+---
+
+# Meeting Records 11/27/2020
+
+- Attendees: Antonio, Gilbert, Jacob, Stephanie, Valeria, Xavier, Kevin
+- Start Time: 5:00pm
+- End Time: 6:00pm
+
+#### Member overview.
+1. Antonio
+ - Working on two maps for displaying heatmaps, pie chart
+  
+2. Gilbert & Jacob, Antonio
+  - Finalized scatterplot to display statistics for active cases for the top 5 states. Fixed date formatting issue. Added scrollbar to the mirror bar graph for reports.
+ 
+3. Richard Quinn, Stephanie
+  - Work with Cynthia, Sebastian to render newsfeed HTML into frontend,
+  
+4. Valeria
+  - Finished up new logos for project. 
+ 
+7. Xavier
+  - Worked on embedding tweets, can render top 100 covid-related tweets to frontend newsfeed.
+
+8. Kevin
+  - Deployed covidly project to Heroku, finished `Trello-7`, working on `Trello-38` and `Trello-39` to fix small ui elements to newsfeed component.
+
+9. Cynthia & Sebastian
+  - Rework both the fetching of news data and the flights information to better adjust to frontend.
+  - Display the newsfeed article, link url, and description on frontend. Need to make it dynamic to generate top 6 stories with efficient code.
+  - Rendering
+  - Can now render all 6 articles dynamically.

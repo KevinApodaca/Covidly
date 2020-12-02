@@ -9,8 +9,6 @@ location = "University of Texas at El Paso"
 # defining a params dict for the parameters to be sent to the API 
 PARAMS = {'address':location} 
 
-
-
 ### US INFO ### 
 
 # api-endpoint 
@@ -83,23 +81,23 @@ dataUT = UT.json()
 statesDict = {'texas':dataTX[0],'new york': dataNY[0],'california': dataCA[0],'florida': dataFL[0],'utah': dataUT[0] }
 
 # This methods returns the date of the information retrieved from the following methods 
-def stateDateRetreived(state):
+def stateDateRetrieved(state):
 	state = state.lower()
 	return statesDict[state]['date']
 
 # This method returns the last updated information of the state of texas in ET 
 def stateLastUpdated(state):
-    state = state.lower()
+	state = state.lower()
 	return statesDict[state]['lastUpdateEt']
 
 # This method returns the positive cases in the state 
 def statePostiveCases(state):
-    state = state.lower()
+	state = state.lower()
 	return statesDict[state]['positive']
 
 # This method returns the increase inpositive cases in the state
 def statePostiveIncrease(state):
-    state = state.lower()
+	state = state.lower()
 	return statesDict[state]['positiveIncrease']
 
 # This method returns the negative cases in the state
@@ -126,20 +124,43 @@ def stateDeathsIncrease(state):
 def stateCurrHospitalized(state):
 	state = state.lower()
 	return statesDict[state]['hospitalizedCurrently']
-	
 
 
-### COUNTIES INFO ### 
-
-#DATAFRAME 
 counties = pd.read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv")
 ## counties['date','county','state','fips','cases','deaths']
 
 # This method returns the positive cases in the county. Works for any County in the US.
 def casesCounty(countyP, stateP): # it takes in two parameters the county's name and the state's name
-    
     findRecentDate = counties[-1:]['date']
     recentDate = findRecentDate.values[0]
-    
     res = counties.loc[ (counties['county'] == countyP) & (counties['state'] == stateP) & ((counties['date']) == recentDate) ]
     return res['cases'].values[0]
+
+def getMonthlyCases(state):
+    stateDailyCases = []
+    stateDates = []
+    if state.lower() == "texas":
+        for i in range(0,31):
+            stateDailyCases.append(dataTX[i]['hospitalizedCurrently'])
+            stateDates.append(dataTX[i]['date'] % 10000)
+
+    if state.lower() == "new york":
+        for i in range(0,31):
+            stateDailyCases.append(dataNY[i]['hospitalizedCurrently'])
+            stateDates.append(dataNY[i]['date'] % 10000)
+
+    if state.lower() == "california":
+        for i in range(0,31):
+            stateDailyCases.append(dataCA[i]['hospitalizedCurrently'])
+            stateDates.append(dataCA[i]['date'] %10000)
+
+    if state.lower() == "florida":
+        for i in range(0,31):
+            stateDailyCases.append(dataFL[i]['hospitalizedCurrently'])
+            stateDates.append(dataFL[i]['date'] %10000)
+
+    if state.lower() == "utah":
+        for i in range(0,31):
+            stateDailyCases.append(dataUT[i]['hospitalizedCurrently'])
+            stateDates.append(dataUT[i]['date'] %10000)
+    return stateDailyCases, stateDates
