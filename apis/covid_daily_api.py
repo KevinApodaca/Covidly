@@ -133,7 +133,7 @@ def stateCurrHospitalized(state):
 
 #DATAFRAME 
 counties = pd.read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv")
-## counties['date','county','state','fips','cases','deatths']
+## counties['date','county','state','fips','cases','deaths']
 
 # This method returns the positive cases in the county. Works for any County in the US.
 def casesCounty(countyP, stateP): # it takes in two parameters the county's name and the state's name
