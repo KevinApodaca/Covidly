@@ -5,8 +5,25 @@ window.addEventListener("load", function() {
     load_cases_table();
     load_realtime_growth_chart();
     load_daily_growth_chart();
+    load_flight_data();
 });
 
+function load_flight_data(){
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var data = JSON.parse(this.response);
+            console.log(data.arrivals[0]);
+
+            document.getElementById("texas_arrivals").innerText = data.arrivals[0];
+            document.getElementById("texas_departures").innerText = data.departures[0];
+        }
+    };
+
+    xhttp.open("GET", "flight_data");
+    xhttp.send();
+}
 
 
 function load_report() {

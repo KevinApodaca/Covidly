@@ -89,3 +89,7 @@ def daily_report(request):
 def mapspage(request):
     plot_div = maps.usa_map()
     return render(request, template_name='pages/maps.html', context={'usa_map': plot_div})
+
+def flight_data(request):
+    flights = getdata.flight_numbers()
+    return HttpResponse(flights.to_json(orient='columns'), content_type='application/json')

@@ -124,7 +124,7 @@ def usa_counties():
 #Retrieve data for arrival flights at airport
 def arrivals(iata):
     params = {
-        'access_key': 'b4144f723ca3c94103bf1d7db7511e84',
+        'access_key': 'KEY',
         'arr_iata': iata
     }
     api_result = requests.get('http://api.aviationstack.com/v1/flights', params)
@@ -137,7 +137,7 @@ def arrivals(iata):
 #Retrieve data for departing flights at airport
 def departures(iata):
     params = {
-        'access_key': 'b4144f723ca3c94103bf1d7db7511e84',
+        'access_key': 'KEY',
         'dep_iata': iata
     }
     api_result = requests.get('http://api.aviationstack.com/v1/flights', params)
@@ -177,3 +177,18 @@ def supportedAirports():
             current = airport(city, currentAirport)
             frames.append(current)
     return pd.concat(frames)
+
+#Return a df containing number of arrivals and departures from/to TX
+def flight_numbers():
+    df = supportedAirports()
+    arrivals = 0
+    departures = 0
+    for index, row in df.iterrows():
+        if row['arrival'] is not None:
+            arrivals = arrivals + 1
+        if row['departure'] is not None:
+            departures = departures + 1
+
+    flights = {'arrivals': [arrivals], 'departures': [departures]}
+    dataframe = pd.DataFrame(data=flights)
+    return dataframe
