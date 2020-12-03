@@ -8,6 +8,9 @@ import requests
 import platform
 import pandas as pd
 
+# Global access key for flights API
+access_key = 'KEY'
+
 # Just changes the format of datetime depending on which OS you're on. Otherwise more bugs to fix and we don't like that.
 if platform.system() == 'Linux':
     STRFTIME_DATA_FRAME_FORMAT = '%-m/%-d/%y'
@@ -121,10 +124,10 @@ def usa_counties():
 
     return df
 
-#Retrieve data for arrival flights at airport
+# Retrieve data for arrival flights at airport
 def arrivals(iata):
     params = {
-        'access_key': 'KEY',
+        'access_key': access_key,
         'arr_iata': iata
     }
     api_result = requests.get('http://api.aviationstack.com/v1/flights', params)
@@ -134,10 +137,10 @@ def arrivals(iata):
         flights_df['arrival'].append(flight['departure']['airport'])
     return flights_df
 
-#Retrieve data for departing flights at airport
+# Retrieve data for departing flights at airport
 def departures(iata):
     params = {
-        'access_key': 'KEY',
+        'access_key': access_key,
         'dep_iata': iata
     }
     api_result = requests.get('http://api.aviationstack.com/v1/flights', params)
@@ -147,7 +150,7 @@ def departures(iata):
         flights_df['departure'].append(flight['arrival']['airport'])
     return flights_df
 
-#Retrieve data for arrivals/departing airport returns dataframe
+# Retrieve data for arrivals/departing airport returns dataframe
 def airport(city, iata):
     arrivalSources = arrivals(iata)
     departureDestinations = departures(iata)
@@ -168,7 +171,7 @@ def airport(city, iata):
         flights_df.update({'city': ([city]*len(arrivalSources['arrival']))})
     return pd.DataFrame(flights_df)
 
-#Returns dataframe of all supported cities
+# Returns dataframe of all supported cities
 def supportedAirports():
     supportedList = {'El Paso': ['ELP'], 'San Antonio': ['SAT'], 'Dallas': ['DAL', 'DFW'], 'Austin': ['AUS'], 'Houston': ['HOU'], 'Fort Worth': ['FTW', 'AFW'], 'Corpus Christi': ['CRP'], 'Laredo': ['LRD'], 'Lubbock': ['LBB'], 'Amarillo': ['AMA']}
     frames = []
@@ -178,7 +181,7 @@ def supportedAirports():
             frames.append(current)
     return pd.concat(frames)
 
-#Return a df containing number of arrivals and departures from/to TX
+# Return a df containing number of arrivals and departures from/to TX
 def flight_numbers():
     df = supportedAirports()
     arrivals = 0
