@@ -13,7 +13,7 @@ SECRET_KEY = config('SECRET_KEY', default='$sB@st1@NN')
 # TODO, we need to change this to false when we deploy it
 DEBUG = True
 
-ALLOWED_HOSTS = ['*'] # this should have the heroku domain for when we deploy this @KevinApodaca
+ALLOWED_HOSTS = ['https://covidly-team-2.herokuapp.com/'] # this should have the heroku domain for when we deploy this @KevinApodaca
 
 # Application definition
 
