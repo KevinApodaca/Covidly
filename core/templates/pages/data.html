@@ -5,20 +5,28 @@
 {% block content %}
 
 <div class="container-fluid pt-6 bg-secondary">
-    <h2>COVID data sets</h2>
-    <p>For the Covidly Dashboard project we used datasets and datasources from the following.</p>
+    <h2>COVID Data Sources</h2>
+    <p>For the Covidly Dashboard project we used data sets and data sources from the following.</p>
     <ul class="list-group list-group-flush">
         <li class="list-group-item"><a href="https://github.com/CSSEGISandData/COVID-19">Johns Hopkins University Center for Systems Science and Engineering</a></li>
         <li class="list-group-item"><a href="https://github.com/owid/covid-19-data/tree/master/public/data">Our World In Data</a></li>
         <li class="list-group-item"><a href="https://github.com/nytimes/covid-19-data">New York Times</a></li>
     </ul>
-    <br>
-    <h2>Newsfeed and Flight data sets</h2>
-    <p>For the Flight Tracker and the Newsfeed components we used datasets and data sources from the following.</p>
+    <hr>
+    <h2>Flight Tracker Data Sources</h2>
+    <p>For the Flight Tracker component of this project we used the following API data source.</p>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item"><a href="">Eric Freudenthal</a></li>
-        <li class="list-group-item"><a href="">Olac Fuentes</a></li>
-        <li class="list-group-item"><a href="">Nigel Ward</a></li>
+        <li class="list-group-item"><a href="https://aviationstack.com/">AviationStack</a> using the <code>flights</code> endpoint to capture flight departure times
+            and arrival times for the five major Texas airports ELP, DAL, AUS, DFW, and SAT</li>
+    </ul>
+    <hr>
+    <h2>Newsfeed Data Sources</h2>
+    <p>For the newsfeed component of this project we used the following APIs and endpoints.</p>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><a href="https://developer.twitter.com/en/docs/twitter-api/tweets/search/api-reference/get-tweets-search-recent">Twitter API</a> using the
+            <code>recent tweets</code> endpoint
+        </li>
+        <li class="list-group-item"><a href="https://newsapi.org/docs">NewsAPI</a> using the <code>top-headlines</code> and <code>everything</code> endpoints.</li>
     </ul>
 
     {% include "includes/footer.html" %}
