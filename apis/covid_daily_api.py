@@ -136,6 +136,13 @@ def casesCounty(countyP, stateP): # it takes in two parameters the county's name
     res = counties.loc[ (counties['county'] == countyP) & (counties['state'] == stateP) & ((counties['date']) == recentDate) ]
     return res['cases'].values[0]
 
+# This method returns the deathss in the county. Works for any County in the US. NOTE: Needs to be tested
+def deathsCounty(countyP, stateP): # it takes in two parameters the county's name and the state's name
+    findRecentDate = counties[-1:]['date']
+    recentDate = findRecentDate.values[0]
+    res = counties.loc[ (counties['county'] == countyP) & (counties['state'] == stateP) & ((counties['date']) == recentDate) ]
+    return res['deaths'].values[0]
+
 def getMonthlyCases(state):
     stateDailyCases = []
     stateDates = []
