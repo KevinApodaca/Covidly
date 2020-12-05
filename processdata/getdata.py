@@ -110,7 +110,7 @@ def percentage_trends():
 # This method generates the sortable table for the frontend that shows stats of all countries.
 def global_cases():
     df = daily_report()[['Country_Region', 'Confirmed', 'Deaths', 'Recovered', 'Active']]
-    df.rename(columns={'Country_Region':'Country'}, inplace=True) 
+    df.rename(columns={'Country_Region':'Country'}, inplace=True)
     df = df.groupby('Country', as_index=False).sum()
     df.sort_values(by=['Confirmed'], ascending=False, inplace=True)
 
@@ -202,7 +202,7 @@ def flight_numbers():
 def news_articles():
     endpoint = 'http://newsapi.org/v2/top-headlines?'
     params = {
-        'country': 'us', 
+        'country': 'us',
 		'category': 'health',
 		'sortBy': 'popularity',
 		'apiKey': '265a30250d594634a08e9b722f993b41'
@@ -212,5 +212,5 @@ def news_articles():
     news_data = response.json()
     articles = news_data['articles']
     articles = articles[:6]
-    df = DataFrame(articles, columns=['title', 'description', 'url', 'urlToImage'])
-    return df 
+    df = pd.DataFrame(articles, columns=['title', 'description', 'url', 'urlToImage'])
+    return df
