@@ -96,7 +96,7 @@ def flight_data(request):
     return HttpResponse(flights.to_json(orient='columns'), content_type='application/json')
   
 # This method fetches the top 6 newest articles related to COVID-19
-def news_articles(request):
+def news_articles(request): 
     df = getdata.news_articles()
     return HttpResponse(df.to_json(orient='columns'), content_type='application/json')
   

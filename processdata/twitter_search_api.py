@@ -12,7 +12,7 @@ arg_names={'fields':"&tweet.fields="
 default_fields=['created_at','author_id','lang','possibly_sensitive']
 default_expansions=['referenced_tweets.id','author_id']#author_id necessary here as well to retrieve author info
 default_user=['name','username']
-token= ''
+token= 'AAAAAAAAAAAAAAAAAAAAAMbOIQEAAAAAmOubtSTp%2Fdme345uVc8IOIys4%2Fk%3DcG2CuEuQ5xQppMgn13akWLyvxwxMOiDXIyF25glaQLcnRhNXSu'
 results='25'
 headers = {"Authorization": "Bearer " + token}
 base_endpoint="https://api.twitter.com/2/tweets/search/recent?query="
@@ -103,6 +103,4 @@ def fetch_tweets(query=default_query,fields=default_fields,expansions=default_ex
                 t.pop(k)
         t['oembed']=embed['html']
         
-    
-
     return sorted(final_tweets,key=lambda t:t['created_at'],reverse=True)

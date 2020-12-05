@@ -3,13 +3,15 @@
     @Team 2
     Description: This file is used to scrape the latest COVID data from the Johns Hopkins CSSE repository as well as the Our World In Data and The New York Times.
 """
+import requests
+import json
 import datetime
 import requests
 import platform
 import pandas as pd
 
 # Global access key for flights API
-access_key = 'KEY'
+access_key = '11e7b1fd08232c292d1fe70992fc2a1d'
 
 # Just changes the format of datetime depending on which OS you're on. Otherwise more bugs to fix and we don't like that.
 if platform.system() == 'Linux':
@@ -195,3 +197,20 @@ def flight_numbers():
     flights = {'arrivals': [arrivals], 'departures': [departures]}
     dataframe = pd.DataFrame(data=flights)
     return dataframe
+
+#Obtain list of articles from News API
+def news_articles():
+    endpoint = 'http://newsapi.org/v2/top-headlines?'
+    params = {
+        'country': 'us', 
+		'category': 'health',
+		'sortBy': 'popularity',
+		'apiKey': '265a30250d594634a08e9b722f993b41'
+        }
+
+    response = requests.get(endpoint, params=params)
+    news_data = response.json()
+    articles = news_data['articles']
+    articles = articles[:6]
+    df = DataFrame(articles, columns=['title', 'description', 'url', 'urlToImage'])
+    return df 
