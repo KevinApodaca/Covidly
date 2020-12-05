@@ -209,3 +209,40 @@ Discussed individual updates. Agreed on new logo for project. Set plans to begin
   - Display the newsfeed article, link url, and description on frontend. Need to make it dynamic to generate top 6 stories with efficient code.
   - Rendering
   - Can now render all 6 articles dynamically.
+  
+---
+# Meeting Records 12/27/2020
+
+- Attendees: Antonio, Gilbert, Jacob, Stephanie, Valeria, Xavier, Kevin
+- Start Time: 5:00pm
+- End Time: 6:00pm
+
+#### Member overview.
+1. Antonio
+- git version control runthrough, push temporary mapbox configuration to be used until the original one could be fixed.
+  
+2. Gilbert
+  - Work on displaying top states component on frontend
+3. Jacob
+- Update mirror bar graph to use the APIs for state counties, added death per county support for the top 10 counties in Texas. Needs to submit pull request.
+ 
+4. Richard Quinn, Stephanie, Cynthia
+  - Retrieved data from flights API and display the flights departed, and flights arrived and render them on the frontend. Discovered issue with API only returning flights per day.
+  
+5. Valeria
+ - New method to retrieve county information from New York Times data set.
+ - Discuss and help implement new logo to project.
+ 
+6. Xavier
+  - Helped with project deployment, look into rendering geodata for tweets.
+  
+8. Kevin
+- Make new API key for aviation stack to prepare for deployment.
+- Fixed issue with map not rendering with covid data.
+- Worked on deploying project to https://covidly-team-2.herokuapp.com/
+
+9. Cynthia
+  - Update frontend to now show links to newsfeed articles in separate tabs for better UX.
+
+10. Sebastian
+  - Refactor the flights method for retrieving data because of Django
