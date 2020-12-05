@@ -344,7 +344,7 @@ function load_daily_growth_chart() {
 
 function load_news_articles() {
     var xhttp = new XMLHttpRequest();
-
+ 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var data = JSON.parse(this.response);
