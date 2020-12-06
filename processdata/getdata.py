@@ -205,7 +205,7 @@ def news_articles():
         'country': 'us',
 		'category': 'health',
 		'sortBy': 'popularity',
-		'apiKey': '265a30250d594634a08e9b722f993b41'
+		'apiKey': '4a443ed33e2c92f88c62c2f0515f7f5c'
         }
 
     response = requests.get(endpoint, params=params)
