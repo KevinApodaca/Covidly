@@ -7,18 +7,6 @@
   <!-- Renders the interactive map that shows the Ployly Mapbox.
         Fetches the GeoJSON data from the plotly dataset for countries found here https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json
    -->
-    <div class="container-fluid mt-1 bg-secondary">
-      <div class="row">
-        <div class="col-xl-8 mb-5 mb-xl-0">
-          <div class="card shadow fade-in-bottom">
-            <div class="card-body plotly worldmap">
-              <div id="world_map" class="chart" style="height: 100%;"></div>
-            </div>
-            <div style="position: absolute; padding:1.25rem 1.5rem;">
-                <h6 class="text-uppercase text-muted ls-1 mb-1">Global | Cumulative</h6>
-            </div>
-          </div>
-        </div>
         {% include "includes/flight-header.html" %}
       <div class="row mt-5">
         <div class="col-xl-11 mb-5 mb-xl-0">
@@ -32,7 +20,7 @@
                 <div class="col text-right">
                   <a class="btn btn-sm btn-white" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Info"
                       data-content="Monthly number of flights..">
-                      &nbsp;<i class="fas fa-info">&nbsp;</i> 
+                      &nbsp;<i class="fas fa-info">&nbsp;</i>
                     </a>
                 </div>
               </div>
