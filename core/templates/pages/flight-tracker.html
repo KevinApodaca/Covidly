@@ -8,43 +8,13 @@
         Fetches the GeoJSON data from the plotly dataset for countries found here https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json
    -->
     <div class="container-fluid mt-1 bg-secondary">
-      <div class="row">
-        <div class="col-xl-8 mb-5 mb-xl-0">
-          <div class="card shadow fade-in-bottom">
-            <div class="card-body plotly worldmap">
-              <div id="world_map" class="chart" style="height: 100%;"></div>
-            </div>
-            <div style="position: absolute; padding:1.25rem 1.5rem;">
-                <h6 class="text-uppercase text-muted ls-1 mb-1">Global | Cumulative</h6>
-            </div>
-          </div>
-        </div>
-        {% include "includes/flight-header.html" %}
-      <div class="row mt-5">
-        <div class="col-xl-11 mb-5 mb-xl-0">
-          <div class="card shadow">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h6 class="text-uppercase text-muted ls-1 mb-1">Texas | Monthly</h6>
-                  <h2 class="mb-0">Texas Flights</h2>
-                </div>
-                <div class="col text-right">
-                  <a class="btn btn-sm btn-white" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Info"
-                      data-content="Monthly number of flights..">
-                      &nbsp;<i class="fas fa-info">&nbsp;</i> 
-                    </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="card-body plotly">
-              <div id="daily_growth_chart" class="chart"style="height: 310px;"></div>
-            </div>
-          </div>
-        </div>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Don’t travel if you are sick or test positive for COVID-19. Don’t travel with someone who is sick.</strong> Travel can increase your chance of spreading and getting COVID-19. Postponing travel and staying home is the best way to protect yourself and others from COVID-19.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-
+        {% include "includes/flight-header.html" %}
       {% include "includes/footer.html" %}
 
     </div>
