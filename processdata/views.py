@@ -105,3 +105,8 @@ def tweets(request):
     tweets = twitter.fetch_tweets()
     json_string = json.dumps(tweets)
     return HttpResponse(json_string, content_type='application/json')
+
+
+# This method returns the Top States... Maybe be Wrong. Pending Frontend Review
+def top_States(request):
+    return HttpResponse(getdata.top_states.to_json(),content_type='application/json')
