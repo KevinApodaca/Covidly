@@ -12,7 +12,7 @@ import pandas as pd
 from apis import covid_daily_api
 
 # Global access key for flights API
-access_key = '4a443ed33e2c92f88c62c2f0515f7f5c'
+access_key = 'bd38baa42e7b653f74bd94cc7b69e4ee'
 
 # Just changes the format of datetime depending on which OS you're on. Otherwise more bugs to fix and we don't like that.
 if platform.system() == 'Linux':
