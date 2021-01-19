@@ -37,12 +37,12 @@ def daily_report(date_string=None):
 
 # This method fetches the daily reported cases by the date. Currently using a global filter so we are getting all the data.
 def daily_confirmed():
-    df = pd.read_csv('https://covid.ourworldindata.org/data/ecdc/new_cases.csv')
+    df = pd.read_csv('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/jhu/new_cases.csv')
     return df
 
 # This method fetches the daily reported deaths by the date.. Currently using a global filter so we are getting all the data.
 def daily_deaths():
-    df = pd.read_csv('https://covid.ourworldindata.org/data/ecdc/new_deaths.csv')
+    df = pd.read_csv('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/jhu/new_deaths.csv')
     return df
 
 # This method fetches a time-series data table of total confirmed cases. This is also global.
