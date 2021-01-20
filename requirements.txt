@@ -7,7 +7,7 @@ numpy==1.18.4
 pandas==1.0.3
 plotly==4.6.0
 psycopg2-binary==2.8.6
-pycodestyle==2.5.0
+pycodestyle==2.6.0
 python-dateutil==2.8.1
 python-decouple==3.4
 pytz==2020.5
